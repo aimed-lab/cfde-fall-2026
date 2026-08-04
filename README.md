@@ -53,9 +53,10 @@ A subdomain is the lowest-risk path: it does not touch the existing WordPress si
 
 3. Wait for propagation (usually minutes). Vercel issues the TLS certificate automatically.
 
-**Where is DNS actually managed?** The registrar may be GoDaddy while DNS is served
-by Bluehost/Newfold, or vice versa. Check the authoritative nameservers first and edit
-DNS wherever they point:
+**Where is DNS actually managed?** Checked on 2026-08-04 — `cfdeconnect.org` answers from
+**Bluehost** nameservers (`ns1.bluehost.com`, `ns2.bluehost.com`), so the CNAME goes in the
+**Bluehost DNS zone editor**, not GoDaddy, even if GoDaddy is the registrar. Re-check before
+you start in case nameservers have moved:
 
 ```bash
 dig NS cfdeconnect.org +short
