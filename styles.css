@@ -141,19 +141,16 @@ a{color:var(--blue-dark)}
 
 .hero__inner{position:relative}
 
-/* logo lockup — centered, both marks */
+/* logo lockup — centered */
 .lockup{
-  display:inline-flex; align-items:center; justify-content:center; gap:clamp(14px,3vw,30px);
-  flex-wrap:wrap;
+  display:inline-flex; align-items:center; justify-content:center;
   background:#fff;
-  padding:clamp(16px,2.6vw,24px) clamp(20px,3.4vw,38px);
+  padding:clamp(18px,2.8vw,26px) clamp(26px,4.2vw,46px);
   border-radius:18px;
   box-shadow:0 14px 44px rgba(0,0,0,.3);
   margin-bottom:clamp(28px,4vw,40px);
 }
-.lockup__a{height:clamp(42px,6vw,58px); width:auto}
-.lockup__b{height:clamp(34px,5.4vw,52px); width:auto}
-.lockup__rule{width:1px; align-self:stretch; min-height:34px; background:var(--line)}
+.lockup__a{height:clamp(50px,7vw,74px); width:auto}
 
 .hero__eyebrow{
   margin:0 0 10px; font-size:.78rem; font-weight:700; letter-spacing:.16em;
@@ -168,6 +165,16 @@ a{color:var(--blue-dark)}
   margin:0 auto; max-width:60ch; font-size:clamp(1rem,1.9vw,1.16rem);
   color:#c3d8e8; text-wrap:pretty;
 }
+.hero__audience{
+  display:inline-block; margin:18px auto 0;
+  background:rgba(95,208,216,.13);
+  border:1px solid rgba(95,208,216,.42);
+  border-radius:999px;
+  padding:9px 20px;
+  font-size:clamp(.88rem,1.5vw,.98rem); color:#d3e8f2; text-wrap:balance;
+}
+/* Keep multi-word role names from breaking across lines. */
+.hero__audience strong{color:#fff; font-weight:650; white-space:nowrap}
 
 .hero__facts{
   display:grid; gap:14px; grid-template-columns:repeat(3,1fr);
@@ -321,15 +328,34 @@ a{color:var(--blue-dark)}
 }
 .closing h2{margin:0 0 8px; font-size:clamp(1.6rem,3.6vw,2.3rem); font-weight:750; letter-spacing:-.02em}
 .closing p{margin:0 0 26px; color:#b9d2e4; font-size:1.06rem}
+.closing__contact{margin:24px 0 0 !important; font-size:.95rem; color:#a6c3d8}
+.closing__contact a{color:#fff; text-decoration:underline; text-underline-offset:3px; text-decoration-color:rgba(255,255,255,.45)}
+.closing__contact a:hover{text-decoration-color:#fff}
 
 /* ── Footer ──────────────────────────────────────────────── */
 .foot{background:var(--navy-900); color:#a9c1d4; padding:clamp(40px,5vw,58px) 0 0}
 .foot__inner{
-  display:grid; grid-template-columns:1.4fr 1fr; gap:32px; align-items:start;
+  display:grid; grid-template-columns:1.5fr 1fr 1fr; gap:36px; align-items:start;
   padding-bottom:32px;
 }
-.foot__brand img{height:38px; width:auto; margin-bottom:14px; filter:brightness(0) invert(1); opacity:.92}
-.foot__brand p{margin:0; font-size:.93rem; max-width:46ch; line-height:1.6}
+/* The logo is a palette PNG with a single transparent index, so its antialiased
+   edges are opaque — a white/invert filter smears them. Set it on a white chip. */
+.foot__brand img{
+  height:44px; width:auto; box-sizing:content-box;
+  background:#fff; padding:12px 18px; border-radius:12px;
+  margin-bottom:18px;
+}
+.foot__brand p{margin:0; font-size:.93rem; max-width:42ch; line-height:1.6}
+
+.foot__contact h2,
+.foot__links h2{
+  margin:0 0 12px; font-size:.72rem; font-weight:700; letter-spacing:.15em;
+  text-transform:uppercase; color:var(--teal-light);
+}
+.foot__person{margin:0 0 3px; color:#fff; font-weight:600; font-size:.98rem}
+.foot__contact a{color:#cfe0ee; font-size:.94rem; text-decoration:none; border-bottom:1px solid rgba(160,200,230,.35)}
+.foot__contact a:hover{color:#fff; border-bottom-color:#fff}
+
 .foot__links{display:grid; gap:9px; align-content:start}
 .foot__links a{color:#cfe0ee; text-decoration:none; font-size:.94rem; font-weight:500; width:fit-content}
 .foot__links a:hover{color:#fff; text-decoration:underline; text-underline-offset:3px}
@@ -358,10 +384,8 @@ a{color:var(--blue-dark)}
   .nav a{padding:13px 12px; font-size:1rem; border-radius:10px}
   .nav__cta{margin:8px 0 0; text-align:center}
 
-  .lockup{flex-direction:column; gap:16px; width:100%; padding:22px 20px}
-  .lockup__rule{width:64px; height:1px; min-height:0; align-self:center}
-  .lockup__a{height:50px}
-  .lockup__b{height:42px}
+  .lockup{width:100%; padding:24px 20px}
+  .lockup__a{height:54px}
 
   /* The mesh zooms hard on narrow viewports: the nodes blow up into blobs
      behind the headline, so keep only the edges as texture. */
