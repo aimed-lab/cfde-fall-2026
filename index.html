@@ -151,17 +151,27 @@
       <p class="lede">A high-level view of the two-day program. Session details and speakers are still being
         confirmed, so times and rooms may shift before the meeting.</p>
 
-      <div class="tabs" role="tablist" aria-label="Meeting days">
-        <button class="tabs__btn is-active" role="tab" id="tab-day1"
-                aria-controls="panel-day1" aria-selected="true">
-          <span class="tabs__day">Day 1</span>
-          <span class="tabs__date">Tue, October 13</span>
-        </button>
-        <button class="tabs__btn" role="tab" id="tab-day2"
-                aria-controls="panel-day2" aria-selected="false" tabindex="-1">
-          <span class="tabs__day">Day 2</span>
-          <span class="tabs__date">Wed, October 14</span>
-        </button>
+      <div class="agenda-bar">
+        <div class="tabs" role="tablist" aria-label="Meeting days">
+          <button class="tabs__btn is-active" role="tab" id="tab-day1"
+                  aria-controls="panel-day1" aria-selected="true">
+            <span class="tabs__day">Day 1</span>
+            <span class="tabs__date">Tue, October 13</span>
+          </button>
+          <button class="tabs__btn" role="tab" id="tab-day2"
+                  aria-controls="panel-day2" aria-selected="false" tabindex="-1">
+            <span class="tabs__day">Day 2</span>
+            <span class="tabs__date">Wed, October 14</span>
+          </button>
+        </div>
+
+        <div class="agenda__tools" hidden>
+          <p class="agenda__hint">Select a session to see details</p>
+          <button class="expand-all" type="button" aria-expanded="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5-5 5 5M7 14l5 5 5-5"/></svg>
+            <span>Expand all</span>
+          </button>
+        </div>
       </div>
 
       <!-- ─────────── DAY 1 ─────────── -->
@@ -192,17 +202,19 @@
             <div class="slot__room"><span class="slot__label">Room</span><span>Atkinson Pavilion</span></div>
           </li>
 
-          <li class="slot">
+          <li class="slot slot--expandable">
             <div class="slot__time">9:20 – 10:30&nbsp;am</div>
             <div class="slot__main">
-              <h3><span class="slot__no">Session 1</span>Center Highlights</h3>
+              <h3><button class="slot__toggle" type="button" aria-expanded="true" aria-controls="more-d1-s1"><span class="slot__title"><span class="slot__no">Session 1</span> Center Highlights</span> <span class="slot__hint">Details<span class="slot__chev" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span></span></button></h3>
+            </div>
+            <div class="slot__mod"><span class="slot__label">Moderator</span><span>Christy Kano</span></div>
+            <div class="slot__room"><span class="slot__label">Room</span><span>Atkinson Pavilion</span></div>
+            <div class="slot__more" id="more-d1-s1">
               <ul class="slot__detail">
                 <li>10 minutes per center × 5 centers</li>
                 <li>10 minute Q&amp;A at the end</li>
               </ul>
             </div>
-            <div class="slot__mod"><span class="slot__label">Moderator</span><span>Christy Kano</span></div>
-            <div class="slot__room"><span class="slot__label">Room</span><span>Atkinson Pavilion</span></div>
           </li>
 
           <li class="slot slot--break">
@@ -212,17 +224,19 @@
             <div class="slot__room"><span class="slot__label">Room</span><span>Courtyard</span></div>
           </li>
 
-          <li class="slot">
+          <li class="slot slot--expandable">
             <div class="slot__time">11:00&nbsp;am – 12:00&nbsp;pm</div>
             <div class="slot__main">
-              <h3><span class="slot__no">Session 2</span>Emerging Partnership Opportunity</h3>
+              <h3><button class="slot__toggle" type="button" aria-expanded="true" aria-controls="more-d1-s2"><span class="slot__title"><span class="slot__no">Session 2</span> Emerging Partnership Opportunity</span> <span class="slot__hint">Details<span class="slot__chev" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span></span></button></h3>
+            </div>
+            <div class="slot__mod"><span class="slot__label">Moderator</span><span>Christy Kano</span></div>
+            <div class="slot__room"><span class="slot__label">Room</span><span>Atkinson Pavilion</span></div>
+            <div class="slot__more" id="more-d1-s2">
               <ul class="slot__detail">
                 <li>SysBio — Hal Skinner</li>
                 <li>COMPLEMENT-ARIE — Gustavo Stolovitzky</li>
               </ul>
             </div>
-            <div class="slot__mod"><span class="slot__label">Moderator</span><span>Christy Kano</span></div>
-            <div class="slot__room"><span class="slot__label">Room</span><span>Atkinson Pavilion</span></div>
           </li>
 
           <li class="slot slot--break">
@@ -232,92 +246,96 @@
             <div class="slot__room"><span class="slot__label">Room</span><span>Courtyard</span></div>
           </li>
 
-          <li class="slot slot--has-breakouts">
+          <li class="slot slot--expandable slot--has-breakouts">
             <div class="slot__time">1:00 – 2:00&nbsp;pm</div>
             <div class="slot__main">
-              <h3><span class="slot__no">Session 3</span>Tech Showcase</h3>
+              <h3><button class="slot__toggle" type="button" aria-expanded="true" aria-controls="more-d1-s3"><span class="slot__title"><span class="slot__no">Session 3</span> Tech Showcase</span> <span class="slot__hint">13 demos in 4 rooms<span class="slot__chev" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span></span></button></h3>
+            </div>
+            <div class="slot__mod"><span class="slot__label">Moderator</span><span>One per room</span></div>
+            <div class="slot__room"><span class="slot__label">Room</span><span>4 parallel rooms</span></div>
+
+            <div class="slot__more" id="more-d1-s3">
               <ul class="slot__detail">
                 <li>Four parallel tracks of live demos — pick a room</li>
               </ul>
-            </div>
-            <div class="slot__mod"><span class="slot__label">Moderator</span><span>One per room</span></div>
-            <div class="slot__room"><span class="slot__label">Room</span><span>4 rooms <span class="slot__note">(below)</span></span></div>
+              <div class="breakouts" aria-label="Tech Showcase tracks">
+                <section class="track">
+                  <header class="track__head">
+                    <span class="track__tag">A</span>
+                    <div>
+                      <h4>Knowledge Graphs &amp; Semantic Integration</h4>
+                      <p class="track__meta"><span>Atkinson Pavilion</span><span>Moderator: Jake Chen</span></p>
+                    </div>
+                  </header>
+                  <ol class="demos">
+                    <li><time>1:00</time><div><b>CFDE Talent Knowledge Graph</b><span>Jake Chen &amp; Zhandos Sembay · University of Alabama at Birmingham</span></div></li>
+                    <li><time>1:20</time><div><b>Data Distillery</b><span>Deanne Taylor &amp; the Data Distillery team · Children's Hospital of Philadelphia</span></div></li>
+                    <li><time>1:40</time><div><b>UniProt Partnership <em class="demos__remote">Remote</em></b><span>Chuming Chen · University of Delaware</span></div></li>
+                  </ol>
+                </section>
 
-            <div class="breakouts" aria-label="Tech Showcase tracks">
-              <section class="track">
-                <header class="track__head">
-                  <span class="track__tag">A</span>
-                  <div>
-                    <h4>Knowledge Graphs &amp; Semantic Integration</h4>
-                    <p class="track__meta"><span>Atkinson Pavilion</span><span>Moderator: Jake Chen</span></p>
-                  </div>
-                </header>
-                <ol class="demos">
-                  <li><time>1:00</time><div><b>CFDE Talent Knowledge Graph</b><span>Jake Chen &amp; Zhandos Sembay · University of Alabama at Birmingham</span></div></li>
-                  <li><time>1:20</time><div><b>Data Distillery</b><span>Deanne Taylor &amp; the Data Distillery team · Children's Hospital of Philadelphia</span></div></li>
-                  <li><time>1:40</time><div><b>UniProt Partnership <em class="demos__remote">Remote</em></b><span>Chuming Chen · University of Delaware</span></div></li>
-                </ol>
-              </section>
+                <section class="track">
+                  <header class="track__head">
+                    <span class="track__tag">B</span>
+                    <div>
+                      <h4>Data Portals &amp; Knowledgebases</h4>
+                      <p class="track__meta"><span>Seuss Library</span><span>Moderator: Christy Kano</span></p>
+                    </div>
+                  </header>
+                  <ol class="demos">
+                    <li><time>1:00</time><div><b>Liver Portal</b><span>Shankar Subramaniam · UC San Diego</span></div></li>
+                    <li><time>1:20</time><div><b>BiomarkerKB</b><span>Jeet Vora · George Washington University</span></div></li>
+                    <li><time>1:40</time><div><b>KG2ML-RAG</b><span>Praveen Kumar (PI: Jeremy Yang) · University of New Mexico</span></div></li>
+                  </ol>
+                </section>
 
-              <section class="track">
-                <header class="track__head">
-                  <span class="track__tag">B</span>
-                  <div>
-                    <h4>Data Portals &amp; Knowledgebases</h4>
-                    <p class="track__meta"><span>Seuss Library</span><span>Moderator: Christy Kano</span></p>
-                  </div>
-                </header>
-                <ol class="demos">
-                  <li><time>1:00</time><div><b>Liver Portal</b><span>Shankar Subramaniam · UC San Diego</span></div></li>
-                  <li><time>1:20</time><div><b>BiomarkerKB</b><span>Jeet Vora · George Washington University</span></div></li>
-                  <li><time>1:40</time><div><b>KG2ML-RAG</b><span>Praveen Kumar (PI: Jeremy Yang) · University of New Mexico</span></div></li>
-                </ol>
-              </section>
+                <section class="track">
+                  <header class="track__head">
+                    <span class="track__tag">C</span>
+                    <div>
+                      <h4>Visualization &amp; User Interfaces</h4>
+                      <p class="track__meta"><span>Classrooms 1–3</span><span>Moderator: Casey Greene</span></p>
+                    </div>
+                  </header>
+                  <ol class="demos">
+                    <li><time>1:00</time><div><b>Community Visualization Hub</b><span>Morgan Turner, Nils Gehlenborg &amp; Nezar Abdennur · Harvard Medical School</span></div></li>
+                    <li><time>1:20</time><div><b>Antibody Panel Designer</b><span>Daniel Bolin &amp; Andreas Bueckle · Indiana University</span></div></li>
+                    <li><time>1:40</time><div><b>CFDE Workbench Explorer</b><span>Erol Evangelista · Icahn School of Medicine at Mount Sinai</span></div></li>
+                    <li><time>1:50</time><div><b>Perturb-Seqr</b><span>John Gardner · Icahn School of Medicine at Mount Sinai</span></div></li>
+                  </ol>
+                </section>
 
-              <section class="track">
-                <header class="track__head">
-                  <span class="track__tag">C</span>
-                  <div>
-                    <h4>Visualization &amp; User Interfaces</h4>
-                    <p class="track__meta"><span>Classrooms 1–3</span><span>Moderator: Casey Greene</span></p>
-                  </div>
-                </header>
-                <ol class="demos">
-                  <li><time>1:00</time><div><b>Community Visualization Hub</b><span>Morgan Turner, Nils Gehlenborg &amp; Nezar Abdennur · Harvard Medical School</span></div></li>
-                  <li><time>1:20</time><div><b>Antibody Panel Designer</b><span>Daniel Bolin &amp; Andreas Bueckle · Indiana University</span></div></li>
-                  <li><time>1:40</time><div><b>CFDE Workbench Explorer</b><span>Erol Evangelista · Icahn School of Medicine at Mount Sinai</span></div></li>
-                  <li><time>1:50</time><div><b>Perturb-Seqr</b><span>John Gardner · Icahn School of Medicine at Mount Sinai</span></div></li>
-                </ol>
-              </section>
-
-              <section class="track">
-                <header class="track__head">
-                  <span class="track__tag">D</span>
-                  <div>
-                    <h4>Compute Platforms &amp; Cross-DCC Analysis</h4>
-                    <p class="track__meta"><span>Classrooms 4–5</span><span>Moderator: Chris Kinsinger</span></p>
-                  </div>
-                </header>
-                <ol class="demos">
-                  <li><time>1:00</time><div><b>Cloud Workspace Implementation Center (CWIC)</b><span>James Carson · Texas Advanced Computing Center</span></div></li>
-                  <li><time>1:20</time><div><b>Bio.Autoxiv</b><span>Daniel Clarke · Icahn School of Medicine at Mount Sinai</span></div></li>
-                  <li><time>1:40</time><div><b>Metabotyping Humans</b><span>Hardik Dodia (Metabolomics Workbench) with MoTrPAC, NPH &amp; HHEAR</span></div></li>
-                </ol>
-              </section>
+                <section class="track">
+                  <header class="track__head">
+                    <span class="track__tag">D</span>
+                    <div>
+                      <h4>Compute Platforms &amp; Cross-DCC Analysis</h4>
+                      <p class="track__meta"><span>Classrooms 4–5</span><span>Moderator: Chris Kinsinger</span></p>
+                    </div>
+                  </header>
+                  <ol class="demos">
+                    <li><time>1:00</time><div><b>Cloud Workspace Implementation Center (CWIC)</b><span>James Carson · Texas Advanced Computing Center</span></div></li>
+                    <li><time>1:20</time><div><b>Bio.Autoxiv</b><span>Daniel Clarke · Icahn School of Medicine at Mount Sinai</span></div></li>
+                    <li><time>1:40</time><div><b>Metabotyping Humans</b><span>Hardik Dodia (Metabolomics Workbench) with MoTrPAC, NPH &amp; HHEAR</span></div></li>
+                  </ol>
+                </section>
+              </div>
             </div>
           </li>
 
-          <li class="slot">
+          <li class="slot slot--expandable">
             <div class="slot__time">2:00 – 3:00&nbsp;pm</div>
             <div class="slot__main">
-              <h3><span class="slot__no">Session 4</span>PAN-NIH Incubator</h3>
+              <h3><button class="slot__toggle" type="button" aria-expanded="true" aria-controls="more-d1-s4"><span class="slot__title"><span class="slot__no">Session 4</span> PAN-NIH Incubator</span> <span class="slot__hint">Details<span class="slot__chev" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span></span></button></h3>
+            </div>
+            <div class="slot__mod"><span class="slot__label">Moderator</span><span>Noel Burtt</span></div>
+            <div class="slot__room"><span class="slot__label">Room</span><span>Atkinson Pavilion</span></div>
+            <div class="slot__more" id="more-d1-s4">
               <ul class="slot__detail">
                 <li>Pilot project ideas — workshop across NIH consortia</li>
                 <li>Recap of the workshop</li>
               </ul>
             </div>
-            <div class="slot__mod"><span class="slot__label">Moderator</span><span>Noel Burtt</span></div>
-            <div class="slot__room"><span class="slot__label">Room</span><span>Atkinson Pavilion</span></div>
           </li>
 
           <li class="slot slot--break">
@@ -327,18 +345,20 @@
             <div class="slot__room"><span class="slot__label">Room</span><span>Courtyard</span></div>
           </li>
 
-          <li class="slot">
+          <li class="slot slot--expandable">
             <div class="slot__time">3:30 – 5:00&nbsp;pm</div>
             <div class="slot__main">
-              <h3><span class="slot__no">Session 5</span>Council of Councils Planning</h3>
+              <h3><button class="slot__toggle" type="button" aria-expanded="true" aria-controls="more-d1-s5"><span class="slot__title"><span class="slot__no">Session 5</span> Council of Councils Planning</span> <span class="slot__hint">Details<span class="slot__chev" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span></span></button></h3>
+            </div>
+            <div class="slot__mod"><span class="slot__label">Moderator</span><span>Christy Kano</span></div>
+            <div class="slot__room"><span class="slot__label">Room</span><span>Atkinson Pavilion</span></div>
+            <div class="slot__more" id="more-d1-s5">
               <ul class="slot__detail">
                 <li>Open session</li>
                 <li>Brainstorming — Center PI attendance required</li>
                 <li>Center PIs required for the second half (30 min)</li>
               </ul>
             </div>
-            <div class="slot__mod"><span class="slot__label">Moderator</span><span>Christy Kano</span></div>
-            <div class="slot__room"><span class="slot__label">Room</span><span>Atkinson Pavilion</span></div>
           </li>
         </ol>
 
@@ -366,75 +386,77 @@
             <div class="slot__room"><span class="slot__label">Room</span><span>Atkinson Pavilion</span></div>
           </li>
 
-          <li class="slot slot--has-breakouts">
+          <li class="slot slot--expandable slot--has-breakouts">
             <div class="slot__time">9:00 – 10:30&nbsp;am</div>
             <div class="slot__main">
-              <h3><span class="slot__no">Session 6</span>Working Group Breakouts <span class="slot__note">(parallel)</span></h3>
+              <h3><button class="slot__toggle" type="button" aria-expanded="true" aria-controls="more-d2-s6"><span class="slot__title"><span class="slot__no">Session 6</span> Working Group Breakouts <span class="slot__note">(parallel)</span></span> <span class="slot__hint">5 working groups in 4 rooms<span class="slot__chev" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span></span></button></h3>
+            </div>
+            <div class="slot__mod"><span class="slot__label">Moderator</span><span>Working Group chairs</span></div>
+            <div class="slot__room"><span class="slot__label">Room</span><span>4 parallel rooms</span></div>
+
+            <div class="slot__more" id="more-d2-s6">
               <ul class="slot__detail">
                 <li>Five working groups across four rooms; Training and Communication &amp; Outreach share a room</li>
               </ul>
-            </div>
-            <div class="slot__mod"><span class="slot__label">Moderator</span><span>Working Group chairs</span></div>
-            <div class="slot__room"><span class="slot__label">Room</span><span>4 rooms <span class="slot__note">(below)</span></span></div>
+              <div class="breakouts" aria-label="Working Group rooms">
+                <section class="track">
+                  <header class="track__head">
+                    <span class="track__tag track__tag--room" aria-hidden="true">
+                      <svg viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11M9 20v-6h6v6"/></svg>
+                    </span>
+                    <div>
+                      <h4>Atkinson Pavilion</h4>
+                      <p class="track__meta"><span>Shared room</span></p>
+                    </div>
+                  </header>
+                  <ul class="wgs">
+                    <li><b>Training Working Group</b><span>Allissa Dillman</span></li>
+                    <li><b>Communication &amp; Outreach Working Group</b><span>Noel Burtt &amp; MacKenzie Brandes</span></li>
+                  </ul>
+                </section>
 
-            <div class="breakouts" aria-label="Working Group rooms">
-              <section class="track">
-                <header class="track__head">
-                  <span class="track__tag track__tag--room" aria-hidden="true">
-                    <svg viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11M9 20v-6h6v6"/></svg>
-                  </span>
-                  <div>
-                    <h4>Atkinson Pavilion</h4>
-                    <p class="track__meta"><span>Shared room</span></p>
-                  </div>
-                </header>
-                <ul class="wgs">
-                  <li><b>Training Working Group</b><span>Allissa Dillman</span></li>
-                  <li><b>Communication &amp; Outreach Working Group</b><span>Noel Burtt &amp; MacKenzie Brandes</span></li>
-                </ul>
-              </section>
+                <section class="track">
+                  <header class="track__head">
+                    <span class="track__tag track__tag--room" aria-hidden="true">
+                      <svg viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11M9 20v-6h6v6"/></svg>
+                    </span>
+                    <div>
+                      <h4>Seuss Library</h4>
+                    </div>
+                  </header>
+                  <ul class="wgs">
+                    <li><b>Knowledge Graph Working Group</b><span>Deanne Taylor &amp; Jonathan Silverstein</span></li>
+                  </ul>
+                </section>
 
-              <section class="track">
-                <header class="track__head">
-                  <span class="track__tag track__tag--room" aria-hidden="true">
-                    <svg viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11M9 20v-6h6v6"/></svg>
-                  </span>
-                  <div>
-                    <h4>Seuss Library</h4>
-                  </div>
-                </header>
-                <ul class="wgs">
-                  <li><b>Knowledge Graph Working Group</b><span>Deanne Taylor &amp; Jonathan Silverstein</span></li>
-                </ul>
-              </section>
+                <section class="track">
+                  <header class="track__head">
+                    <span class="track__tag track__tag--room" aria-hidden="true">
+                      <svg viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11M9 20v-6h6v6"/></svg>
+                    </span>
+                    <div>
+                      <h4>Classrooms 1–3</h4>
+                    </div>
+                  </header>
+                  <ul class="wgs">
+                    <li><b>Ontology Working Group</b><span>Mano Maurya, Srini Ramachandran &amp; Daniel Clarke</span></li>
+                  </ul>
+                </section>
 
-              <section class="track">
-                <header class="track__head">
-                  <span class="track__tag track__tag--room" aria-hidden="true">
-                    <svg viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11M9 20v-6h6v6"/></svg>
-                  </span>
-                  <div>
-                    <h4>Classrooms 1–3</h4>
-                  </div>
-                </header>
-                <ul class="wgs">
-                  <li><b>Ontology Working Group</b><span>Mano Maurya, Srini Ramachandran &amp; Daniel Clarke</span></li>
-                </ul>
-              </section>
-
-              <section class="track">
-                <header class="track__head">
-                  <span class="track__tag track__tag--room" aria-hidden="true">
-                    <svg viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11M9 20v-6h6v6"/></svg>
-                  </span>
-                  <div>
-                    <h4>Classrooms 4–5</h4>
-                  </div>
-                </header>
-                <ul class="wgs">
-                  <li><b>Evaluation Working Group</b><span>Casey Greene</span></li>
-                </ul>
-              </section>
+                <section class="track">
+                  <header class="track__head">
+                    <span class="track__tag track__tag--room" aria-hidden="true">
+                      <svg viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11M9 20v-6h6v6"/></svg>
+                    </span>
+                    <div>
+                      <h4>Classrooms 4–5</h4>
+                    </div>
+                  </header>
+                  <ul class="wgs">
+                    <li><b>Evaluation Working Group</b><span>Casey Greene</span></li>
+                  </ul>
+                </section>
+              </div>
             </div>
           </li>
 
@@ -445,18 +467,20 @@
             <div class="slot__room"><span class="slot__label">Room</span><span>Courtyard</span></div>
           </li>
 
-          <li class="slot">
+          <li class="slot slot--expandable">
             <div class="slot__time">10:45&nbsp;am – 12:00&nbsp;pm</div>
             <div class="slot__main">
-              <h3><span class="slot__no">Session 7</span>Emerging Opportunities</h3>
+              <h3><button class="slot__toggle" type="button" aria-expanded="true" aria-controls="more-d2-s7"><span class="slot__title"><span class="slot__no">Session 7</span> Emerging Opportunities</span> <span class="slot__hint">Details<span class="slot__chev" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span></span></button></h3>
+            </div>
+            <div class="slot__mod"><span class="slot__label">Moderator</span><span>—</span></div>
+            <div class="slot__room"><span class="slot__label">Room</span><span>Atkinson Pavilion</span></div>
+            <div class="slot__more" id="more-d2-s7">
               <ul class="slot__detail">
                 <li>Readout from the Working Groups</li>
                 <li>Agentic AI Skills — Avi Ma'ayan</li>
                 <li>Event announcements — open to all</li>
               </ul>
             </div>
-            <div class="slot__mod"><span class="slot__label">Moderator</span><span>—</span></div>
-            <div class="slot__room"><span class="slot__label">Room</span><span>Atkinson Pavilion</span></div>
           </li>
 
           <li class="slot slot--break">
@@ -471,18 +495,20 @@
             <div class="slot__room"><span class="slot__label">Room</span><span>Courtyard</span></div>
           </li>
 
-          <li class="slot">
+          <li class="slot slot--expandable">
             <div class="slot__time">1:30 – 2:30&nbsp;pm</div>
             <div class="slot__main">
-              <h3><span class="slot__no">Session 8</span>Future Directions for CFDE</h3>
+              <h3><button class="slot__toggle" type="button" aria-expanded="true" aria-controls="more-d2-s8"><span class="slot__title"><span class="slot__no">Session 8</span> Future Directions for CFDE</span> <span class="slot__hint">Details<span class="slot__chev" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></span></span></button></h3>
+            </div>
+            <div class="slot__mod"><span class="slot__label">Moderator</span><span>Shankar Subramaniam</span></div>
+            <div class="slot__room"><span class="slot__label">Room</span><span>Atkinson Pavilion</span></div>
+            <div class="slot__more" id="more-d2-s8">
               <ul class="slot__detail">
                 <li>Evaluation — Casey Greene; sustainability — Peipei Ping &amp; Wei Wang</li>
                 <li>Brainstorming for expanding the CFDE user base</li>
                 <li>Collaborations within and beyond CFDE</li>
               </ul>
             </div>
-            <div class="slot__mod"><span class="slot__label">Moderator</span><span>Shankar Subramaniam</span></div>
-            <div class="slot__room"><span class="slot__label">Room</span><span>Atkinson Pavilion</span></div>
           </li>
 
           <li class="slot">

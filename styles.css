@@ -130,7 +130,8 @@ a{color:var(--blue-dark)}
 .btn--invert:hover{background:#eaf3fa; transform:translateY(-2px); box-shadow:0 10px 26px rgba(0,0,0,.22)}
 
 @media (prefers-reduced-motion:reduce){
-  .btn,.btn svg,.card,.hotel{transition:none !important}
+  .btn,.btn svg,.card,.hotel,.slot__chev svg{transition:none !important}
+  .slot__more:not([hidden]){animation:none}
   .btn:hover{transform:none}
 }
 
@@ -310,6 +311,25 @@ a{color:var(--blue-dark)}
 .tabs__date{font-size:.84rem; color:var(--ink-soft)}
 .tabs__btn.is-active .tabs__date{color:var(--teal)}
 
+/* Tabs + "Expand all" share one row on wide screens. */
+.agenda-bar{
+  display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between;
+  gap:12px 20px; margin:0 0 22px;
+}
+.agenda-bar .tabs{margin:0; flex:1 1 360px}
+.agenda__tools{display:flex; align-items:center; gap:14px}
+.agenda__tools[hidden]{display:none}
+.agenda__hint{margin:0; font-size:.86rem; color:var(--ink-soft)}
+.expand-all{
+  display:inline-flex; align-items:center; gap:7px; flex:none;
+  font:inherit; font-size:.88rem; font-weight:650; color:var(--blue-dark);
+  background:#fff; border:1px solid var(--line); border-radius:999px;
+  padding:8px 15px; cursor:pointer;
+  transition:border-color .18s ease, box-shadow .18s ease;
+}
+.expand-all:hover{border-color:var(--blue); box-shadow:var(--shadow-sm)}
+.expand-all svg{width:16px; height:16px; fill:none; stroke:currentColor; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round}
+
 /* Schedule: a real table-like grid on wide screens, stacked cards on phones.
    Column widths live in one variable so the header and rows stay aligned. */
 .agenda{
@@ -334,7 +354,7 @@ a{color:var(--blue-dark)}
 .slot__time{font-weight:700; color:var(--blue-dark); font-variant-numeric:tabular-nums}
 .slot__main h3{margin:0; font-size:1.03rem; font-weight:700; color:var(--navy-800); line-height:1.4}
 .slot__no{
-  display:inline-block; margin-right:8px; vertical-align:1px;
+  display:inline-block; margin-right:4px; vertical-align:1px;
   font-size:.68rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
   padding:3px 8px; border-radius:6px;
   background:rgba(46,147,163,.12); color:#1f7482;
@@ -351,6 +371,42 @@ a{color:var(--blue-dark)}
 }
 .slot__mod, .slot__room{font-size:.95rem; color:var(--ink)}
 .slot__label{display:none}
+
+/* Expandable sessions (accordion). The title is a real <button> for keyboard
+   and screen-reader users; the whole row is also clickable as a bigger target. */
+.slot--expandable{cursor:pointer; transition:background .15s ease}
+.slot--expandable.is-open{background:#fbfdfe}
+/* Hover only where a pointer can hover; on touchscreens :hover sticks after a tap. */
+@media (hover:hover){
+  .slot--expandable:hover{background:#f6fafd}
+  .slot--expandable:hover .slot__title{color:var(--blue-dark)}
+}
+.slot__toggle{
+  display:flex; flex-direction:column; align-items:flex-start; gap:5px;
+  width:100%; padding:0; margin:0; border:0; background:none;
+  font:inherit; color:inherit; text-align:left; cursor:pointer;
+}
+.slot__toggle:focus-visible{outline:3px solid var(--teal); outline-offset:5px; border-radius:6px}
+.slot__title{display:block}
+.slot__hint{
+  display:inline-flex; align-items:center; gap:4px;
+  font-size:.8rem; font-weight:650; color:var(--teal);
+}
+.slot__chev{display:inline-grid; place-items:center}
+.slot__chev svg{
+  width:16px; height:16px; fill:none; stroke:currentColor;
+  stroke-width:2.4; stroke-linecap:round; stroke-linejoin:round;
+  transition:transform .2s ease;
+}
+.slot__toggle[aria-expanded="true"] .slot__chev svg{transform:rotate(180deg)}
+
+/* Details sit under the session column, aligned with the title. */
+.slot__more{grid-column:2 / -1; margin-top:12px; cursor:auto}
+.slot__more[hidden]{display:none}
+.slot__more > .slot__detail:first-child{margin-top:0}
+.slot__more .breakouts{margin-top:14px}
+.slot__more:not([hidden]){animation:reveal .22s ease}
+@keyframes reveal{from{opacity:0; transform:translateY(-4px)} to{opacity:1; transform:none}}
 
 /* Meals and breaks recede so the sessions carry the page. */
 .slot--break{background:#f8fafc}
@@ -628,6 +684,18 @@ a{color:var(--blue-dark)}
     padding:16px 4px 0; font-size:.78rem;
   }
 
+  /* display:contents lets the tabs stay sticky against the section, not the bar. */
+  .agenda-bar{display:contents}
+  .agenda-bar .tabs{margin:0 0 12px}
+  .agenda__tools{justify-content:space-between; margin:0 0 12px}
+  .agenda__hint{font-size:.82rem}
+  .expand-all{padding:7px 13px; font-size:.84rem}
+
+  .slot__more{
+    grid-column:1 / -1; margin-top:12px; padding-top:12px;
+    border-top:1px dashed var(--line);
+  }
+
   .breakouts{grid-template-columns:1fr; gap:10px; margin-top:14px}
   .track{padding:12px 14px 8px}
   /* Room and moderator on their own lines: when they wrap inline, the
@@ -643,7 +711,9 @@ a{color:var(--blue-dark)}
 
 /* Print */
 @media print{
-  .topbar,.hero__mesh,.hero__actions,.closing,.tabs,.map__zoom{display:none}
+  .topbar,.hero__mesh,.hero__actions,.closing,.tabs,.map__zoom,.agenda__tools,.slot__hint{display:none}
+  /* Print every session's details, whatever is open on screen. */
+  .slot__more[hidden]{display:block}
   /* Print both days, not just the selected tab. */
   .agenda[hidden]{display:block; margin-top:24px}
   body{color:#000}
