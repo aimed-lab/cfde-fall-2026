@@ -364,6 +364,48 @@ a{color:var(--blue-dark)}
 }
 #agenda .finenote{margin-top:16px}
 
+/* Parallel breakouts (Tech Showcase, Working Groups): a full-width block
+   under the session row, one card per room. */
+.breakouts{
+  grid-column:1 / -1;
+  display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:14px;
+  margin-top:18px;
+}
+.track{
+  background:#fbfdfe; border:1px solid var(--line); border-radius:12px;
+  padding:14px 16px 12px;
+}
+.track__head{display:flex; align-items:flex-start; gap:12px; margin-bottom:10px}
+.track__head h4{margin:1px 0 0; font-size:.98rem; font-weight:700; color:var(--navy-800); line-height:1.35}
+.track__tag{
+  flex:none; display:grid; place-items:center; width:28px; height:28px; border-radius:8px;
+  background:linear-gradient(135deg,var(--teal),var(--blue)); color:#fff;
+  font-size:.86rem; font-weight:800;
+}
+.track__tag--room svg{width:16px; height:16px; fill:none; stroke:#fff; stroke-width:2; stroke-linecap:round; stroke-linejoin:round}
+.track__meta{
+  display:flex; flex-wrap:wrap; gap:2px 12px; margin:3px 0 0;
+  font-size:.84rem; color:var(--ink-soft);
+}
+.track__meta span:first-child{color:var(--blue-dark); font-weight:650}
+.track__meta span + span::before{content:"·"; margin-right:12px; color:#9fb2c2}
+
+.demos, .wgs{list-style:none; margin:0; padding:0}
+.demos li{
+  display:grid; grid-template-columns:40px minmax(0,1fr); gap:10px;
+  padding:9px 0; border-top:1px dashed var(--line);
+}
+.demos time{font-size:.84rem; font-weight:700; color:var(--blue-dark); font-variant-numeric:tabular-nums; padding-top:1px}
+.demos b, .wgs b{display:block; font-size:.93rem; font-weight:650; color:var(--ink); line-height:1.4}
+.demos span, .wgs span{display:block; margin-top:2px; font-size:.84rem; color:var(--ink-soft); line-height:1.45}
+.demos__remote{
+  display:inline-block; margin-left:6px; vertical-align:1px;
+  font-style:normal; font-size:.66rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+  padding:2px 7px; border-radius:999px;
+  background:rgba(132,128,166,.14); color:#5d5888;
+}
+.wgs li{padding:9px 0; border-top:1px dashed var(--line)}
+
 /* ── Venue maps ──────────────────────────────────────────── */
 .maps{display:grid; grid-template-columns:1.35fr 1fr; gap:22px; margin-top:22px}
 .map{margin:0; background:#fff; border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-sm)}
@@ -585,6 +627,13 @@ a{color:var(--blue-dark)}
     border:0; background:transparent; text-align:center;
     padding:16px 4px 0; font-size:.78rem;
   }
+
+  .breakouts{grid-template-columns:1fr; gap:10px; margin-top:14px}
+  .track{padding:12px 14px 8px}
+  /* Room and moderator on their own lines: when they wrap inline, the
+     second line would open with a stray separator dot. */
+  .track__meta{flex-direction:column; gap:1px}
+  .track__meta span + span::before{content:none}
 }
 
 @media (max-width:400px){
