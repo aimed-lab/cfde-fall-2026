@@ -490,14 +490,16 @@ a{color:var(--blue-dark)}
   border-top:1px solid var(--line);
   display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:14px 24px;
 }
-.facts li{display:flex; align-items:flex-start; gap:12px}
+.facts li{display:flex; align-items:center; gap:12px}
 .facts__ico{
   flex:none; display:grid; place-items:center; width:36px; height:36px; border-radius:10px;
   background:rgba(46,147,163,.12);
 }
 .facts__ico svg{width:19px; height:19px; fill:none; stroke:#1f7482; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round}
-.facts b{display:block; font-size:.95rem; font-weight:650; color:var(--ink); line-height:1.35}
-.facts span{display:block; margin-top:2px; font-size:.87rem; color:var(--ink-soft); line-height:1.45}
+/* Scoped to the text column: a bare ".facts span" would also hit the icon
+   box (.facts__ico) and override its centering. */
+.facts li > div b{display:block; font-size:.95rem; font-weight:650; color:var(--ink); line-height:1.35}
+.facts li > div span{display:block; margin-top:2px; font-size:.87rem; color:var(--ink-soft); line-height:1.45}
 
 /* Parking and rooms: a map beside what it means, one panel per question. */
 .vpanel{
