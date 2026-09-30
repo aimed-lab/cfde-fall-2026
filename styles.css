@@ -285,19 +285,102 @@ a{color:var(--blue-dark)}
 .regcard__cta{text-align:center}
 .regcard__note{margin:12px 0 0; font-size:.85rem; color:var(--ink-soft)}
 
-/* ── Agenda "coming soon" ────────────────────────────────── */
-.soon{
-  background:#fff; border:1px dashed #b9cfe0; border-radius:var(--radius);
-  padding:clamp(30px,5vw,52px); text-align:center;
+/* ── Agenda ──────────────────────────────────────────────── */
+
+/* Day tabs */
+.tabs{
+  display:grid; grid-template-columns:1fr 1fr; gap:6px;
+  background:#e4edf4; border:1px solid var(--line);
+  padding:6px; border-radius:14px; margin:0 0 22px;
+  max-width:520px;
 }
-.soon__badge{
-  display:inline-block; margin-bottom:16px;
-  background:linear-gradient(135deg,var(--teal),var(--blue)); color:#fff;
-  font-size:.74rem; font-weight:700; letter-spacing:.13em; text-transform:uppercase;
-  padding:7px 16px; border-radius:999px;
+.tabs__btn{
+  display:grid; gap:1px; justify-items:start; text-align:left;
+  font:inherit; cursor:pointer;
+  background:transparent; border:0; border-radius:10px;
+  padding:11px 18px; color:var(--navy-600);
+  transition:background .18s ease, color .18s ease, box-shadow .18s ease;
 }
-.soon__text{margin:0 auto 14px; max-width:58ch; font-size:clamp(1rem,1.7vw,1.12rem); color:var(--ink); text-wrap:pretty}
-.soon__meta{margin:0; font-size:.94rem; color:var(--ink-soft)}
+.tabs__btn:hover{background:rgba(255,255,255,.55)}
+.tabs__btn.is-active{
+  background:#fff; color:var(--navy-800);
+  box-shadow:0 1px 2px rgba(19,42,68,.08), 0 4px 12px rgba(19,42,68,.08);
+}
+.tabs__day{font-weight:750; font-size:1.02rem; letter-spacing:-.01em}
+.tabs__date{font-size:.84rem; color:var(--ink-soft)}
+.tabs__btn.is-active .tabs__date{color:var(--teal)}
+
+/* Schedule: a real table-like grid on wide screens, stacked cards on phones.
+   Column widths live in one variable so the header and rows stay aligned. */
+.agenda{
+  --cols: 168px minmax(0,1fr) 200px 180px;  /* 168px fits "10:45 am – 12:00 pm" on one line */
+  background:#fff; border:1px solid var(--line); border-radius:var(--radius);
+  box-shadow:var(--shadow-sm); overflow:hidden;
+}
+.agenda__head{
+  display:grid; grid-template-columns:var(--cols); gap:0 24px;
+  padding:13px 26px; background:var(--navy-800); color:#cfe0ee;
+  font-size:.72rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+}
+.agenda__list{list-style:none; margin:0; padding:0}
+
+.slot{
+  display:grid; grid-template-columns:var(--cols); gap:0 24px; align-items:start;
+  padding:18px 26px; border-top:1px solid var(--line);
+}
+.slot:first-child{border-top:0}
+/* am/pm are bound to their numbers with &nbsp;, so a long range like
+   "11:00 am – 12:00 pm" can only wrap at the dash in a narrow column. */
+.slot__time{font-weight:700; color:var(--blue-dark); font-variant-numeric:tabular-nums}
+.slot__main h3{margin:0; font-size:1.03rem; font-weight:700; color:var(--navy-800); line-height:1.4}
+.slot__no{
+  display:inline-block; margin-right:8px; vertical-align:1px;
+  font-size:.68rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+  padding:3px 8px; border-radius:6px;
+  background:rgba(46,147,163,.12); color:#1f7482;
+}
+.slot__note{font-weight:500; color:var(--ink-soft); font-size:.92em}
+.slot__detail{
+  list-style:none; margin:8px 0 0; padding:0; display:grid; gap:4px;
+  font-size:.93rem; color:var(--ink-soft);
+}
+.slot__detail li{position:relative; padding-left:15px}
+.slot__detail li::before{
+  content:""; position:absolute; left:0; top:.62em;
+  width:6px; height:6px; border-radius:2px; background:var(--teal); opacity:.55;
+}
+.slot__mod, .slot__room{font-size:.95rem; color:var(--ink)}
+.slot__label{display:none}
+
+/* Meals and breaks recede so the sessions carry the page. */
+.slot--break{background:#f8fafc}
+.slot--break .slot__time{color:var(--ink-soft); font-weight:600}
+.slot--break .slot__main h3{font-weight:600; color:var(--ink-soft)}
+
+.agenda__end{
+  margin:0; padding:14px 26px; border-top:1px solid var(--line);
+  background:var(--tint); color:var(--navy-600);
+  font-size:.84rem; font-weight:650; letter-spacing:.06em; text-transform:uppercase;
+}
+#agenda .finenote{margin-top:16px}
+
+/* ── Venue maps ──────────────────────────────────────────── */
+.maps{display:grid; grid-template-columns:1.35fr 1fr; gap:22px; margin-top:22px}
+.map{margin:0; background:#fff; border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-sm)}
+.map__frame{position:relative; display:block; background:#f4f6f8; border-bottom:1px solid var(--line)}
+.map__frame img{width:100%; height:auto; aspect-ratio:auto}
+.map__zoom{
+  position:absolute; right:12px; bottom:12px;
+  display:inline-flex; align-items:center; gap:6px;
+  background:rgba(13,31,51,.82); color:#fff;
+  font-size:.8rem; font-weight:600; padding:7px 12px; border-radius:999px;
+  transition:background .18s ease;
+}
+.map__zoom svg{width:15px; height:15px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round}
+.map__frame:hover .map__zoom{background:var(--blue)}
+.map figcaption{padding:16px 20px 18px; font-size:.93rem; color:var(--ink-soft); line-height:1.6}
+.map figcaption strong{display:block; margin-bottom:3px; font-size:1.02rem; color:var(--navy-800)}
+.map figcaption b{color:var(--ink); font-weight:650}
 
 /* ── Cards / venue ───────────────────────────────────────── */
 .venue{display:grid; grid-template-columns:1fr 1fr; gap:22px; align-items:start}
@@ -414,6 +497,13 @@ a{color:var(--blue-dark)}
 .foot__legal p{margin:0; font-size:.85rem; color:#7e98ad}
 
 /* ═══════════════ Responsive ═══════════════ */
+@media (max-width:1000px){
+  /* Single-period ranges still fit; only the two cross-noon ranges wrap, at the dash. */
+  .agenda{--cols: 138px minmax(0,1fr) 146px 136px}
+  .agenda__head, .slot{gap:0 18px; padding-inline:20px}
+  .maps{grid-template-columns:1fr}
+}
+
 @media (max-width:900px){
   .regcard{grid-template-columns:1fr}
   .venue{grid-template-columns:1fr}
@@ -449,6 +539,52 @@ a{color:var(--blue-dark)}
   .linkrow .btn{width:100%}
   .regcard__cta .btn{width:100%}
   .closing .btn{width:100%; max-width:420px}
+
+  /* Agenda on phones: each slot becomes its own card. Time leads, the
+     session title follows, and moderator/room drop to labeled rows. */
+  .tabs{max-width:none; position:sticky; top:66px; z-index:5}
+  .tabs__btn{justify-items:center; text-align:center; padding:10px 8px}
+
+  .agenda{background:transparent; border:0; box-shadow:none; overflow:visible}
+  .agenda__head{display:none}
+  .agenda__list{display:grid; gap:12px}
+  .slot{
+    grid-template-columns:1fr; gap:0;
+    background:#fff; border:1px solid var(--line); border-radius:14px;
+    padding:16px 18px; box-shadow:var(--shadow-sm);
+  }
+  .slot:first-child{border-top:1px solid var(--line)}
+  .slot__time{font-size:.88rem; margin-bottom:5px}
+  .slot__main h3{font-size:1.06rem}
+  .slot__no{display:table; margin:0 0 6px}
+  .slot__mod, .slot__room{
+    display:flex; align-items:baseline; gap:10px;
+    font-size:.93rem; margin-top:8px;
+  }
+  .slot__mod{margin-top:12px; padding-top:12px; border-top:1px dashed var(--line)}
+  .slot__label{
+    display:inline-block; flex:none; min-width:80px;
+    font-size:.68rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+
+  /* Breaks collapse to a single compact row: time · title, room on the right. */
+  .slot--break{
+    display:flex; flex-wrap:wrap; align-items:baseline; gap:2px 12px;
+    padding:12px 16px; background:#f6f9fb; box-shadow:none;
+  }
+  .slot--break .slot__time{margin:0; font-size:.86rem}
+  .slot--break .slot__main{flex:1 1 auto}
+  .slot--break .slot__main h3{font-size:.96rem}
+  .slot--break .slot__detail{margin-top:4px}
+  .slot--break .slot__mod{display:none}
+  .slot--break .slot__room{margin:0; font-size:.86rem; color:var(--ink-soft)}
+  .slot--break .slot__room .slot__label{display:none}
+
+  .agenda__end{
+    border:0; background:transparent; text-align:center;
+    padding:16px 4px 0; font-size:.78rem;
+  }
 }
 
 @media (max-width:400px){
@@ -458,7 +594,9 @@ a{color:var(--blue-dark)}
 
 /* Print */
 @media print{
-  .topbar,.hero__mesh,.hero__actions,.closing{display:none}
+  .topbar,.hero__mesh,.hero__actions,.closing,.tabs,.map__zoom{display:none}
+  /* Print both days, not just the selected tab. */
+  .agenda[hidden]{display:block; margin-top:24px}
   body{color:#000}
   .hero{background:#fff; color:#000; padding:20px 0}
   .hero__title,.hero__facts dd{color:#000}

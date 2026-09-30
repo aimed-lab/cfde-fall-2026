@@ -148,12 +148,242 @@
     <div class="wrap">
       <p class="kicker">Program</p>
       <h2 class="h2">Agenda</h2>
+      <p class="lede">A high-level view of the two-day program. Session details and speakers are still being
+        confirmed, so times and rooms may shift before the meeting.</p>
 
-      <div class="soon">
-        <span class="soon__badge">Coming soon</span>
-        <p class="soon__text">The Fall 2026 agenda is still being finalized. The full two-day schedule —
-          sessions, speakers, and breakouts — will be posted on this page as soon as it is confirmed.</p>
+      <div class="tabs" role="tablist" aria-label="Meeting days">
+        <button class="tabs__btn is-active" role="tab" id="tab-day1"
+                aria-controls="panel-day1" aria-selected="true">
+          <span class="tabs__day">Day 1</span>
+          <span class="tabs__date">Tue, October 13</span>
+        </button>
+        <button class="tabs__btn" role="tab" id="tab-day2"
+                aria-controls="panel-day2" aria-selected="false" tabindex="-1">
+          <span class="tabs__day">Day 2</span>
+          <span class="tabs__date">Wed, October 14</span>
+        </button>
       </div>
+
+      <!-- ─────────── DAY 1 ─────────── -->
+      <div class="agenda" id="panel-day1" role="tabpanel" aria-labelledby="tab-day1">
+        <div class="agenda__head" aria-hidden="true">
+          <span>Time</span><span>Session</span><span>Moderator</span><span>Room</span>
+        </div>
+        <ol class="agenda__list">
+
+          <li class="slot slot--break">
+            <div class="slot__time">8:00 – 8:45&nbsp;am</div>
+            <div class="slot__main"><h3>Registration &amp; Breakfast</h3></div>
+            <div class="slot__mod"><span class="slot__label">Moderator</span><span>—</span></div>
+            <div class="slot__room"><span class="slot__label">Room</span><span>Courtyard</span></div>
+          </li>
+
+          <li class="slot">
+            <div class="slot__time">8:45 – 9:00&nbsp;am</div>
+            <div class="slot__main"><h3>Welcome</h3></div>
+            <div class="slot__mod"><span class="slot__label">Moderator</span><span>Jake Chen</span></div>
+            <div class="slot__room"><span class="slot__label">Room</span><span>Atkinson Pavilion</span></div>
+          </li>
+
+          <li class="slot">
+            <div class="slot__time">9:00 – 9:20&nbsp;am</div>
+            <div class="slot__main"><h3>NIH Opening Remarks</h3></div>
+            <div class="slot__mod"><span class="slot__label">Moderator</span><span>Chris Kinsinger</span></div>
+            <div class="slot__room"><span class="slot__label">Room</span><span>Atkinson Pavilion</span></div>
+          </li>
+
+          <li class="slot">
+            <div class="slot__time">9:20 – 10:30&nbsp;am</div>
+            <div class="slot__main">
+              <h3><span class="slot__no">Session 1</span>Center Highlights</h3>
+              <ul class="slot__detail">
+                <li>10 minutes per center × 5 centers</li>
+                <li>10 minute Q&amp;A at the end</li>
+              </ul>
+            </div>
+            <div class="slot__mod"><span class="slot__label">Moderator</span><span>Christy Kano</span></div>
+            <div class="slot__room"><span class="slot__label">Room</span><span>Atkinson Pavilion</span></div>
+          </li>
+
+          <li class="slot slot--break">
+            <div class="slot__time">10:30 – 11:00&nbsp;am</div>
+            <div class="slot__main"><h3>Coffee Break</h3></div>
+            <div class="slot__mod"><span class="slot__label">Moderator</span><span>—</span></div>
+            <div class="slot__room"><span class="slot__label">Room</span><span>Courtyard</span></div>
+          </li>
+
+          <li class="slot">
+            <div class="slot__time">11:00&nbsp;am – 12:00&nbsp;pm</div>
+            <div class="slot__main">
+              <h3><span class="slot__no">Session 2</span>Emerging Partnership Opportunity</h3>
+              <ul class="slot__detail">
+                <li>SysBio — Hal Skinner</li>
+                <li>COMPLEMENT-ARIE — Gustavo Stolovitzky</li>
+              </ul>
+            </div>
+            <div class="slot__mod"><span class="slot__label">Moderator</span><span>Christy Kano</span></div>
+            <div class="slot__room"><span class="slot__label">Room</span><span>Atkinson Pavilion</span></div>
+          </li>
+
+          <li class="slot slot--break">
+            <div class="slot__time">12:00 – 1:00&nbsp;pm</div>
+            <div class="slot__main"><h3>Lunch <span class="slot__note">(provided on-site)</span></h3></div>
+            <div class="slot__mod"><span class="slot__label">Moderator</span><span>—</span></div>
+            <div class="slot__room"><span class="slot__label">Room</span><span>Courtyard</span></div>
+          </li>
+
+          <li class="slot">
+            <div class="slot__time">1:00 – 2:00&nbsp;pm</div>
+            <div class="slot__main">
+              <h3><span class="slot__no">Session 3</span>Tech Showcase</h3>
+              <ul class="slot__detail">
+                <li>Parallel sessions, one moderator per breakout room</li>
+              </ul>
+            </div>
+            <div class="slot__mod"><span class="slot__label">Moderator</span><span>Chris, Casey, Christy &amp; Jake</span></div>
+            <div class="slot__room"><span class="slot__label">Room</span><span>Breakout rooms <span class="slot__note">(4 rooms)</span></span></div>
+          </li>
+
+          <li class="slot">
+            <div class="slot__time">2:00 – 3:00&nbsp;pm</div>
+            <div class="slot__main">
+              <h3><span class="slot__no">Session 4</span>PAN-NIH Incubator</h3>
+              <ul class="slot__detail">
+                <li>Pilot project ideas — workshop across NIH consortia</li>
+                <li>Recap of the workshop</li>
+              </ul>
+            </div>
+            <div class="slot__mod"><span class="slot__label">Moderator</span><span>Noel Burtt</span></div>
+            <div class="slot__room"><span class="slot__label">Room</span><span>Atkinson Pavilion</span></div>
+          </li>
+
+          <li class="slot slot--break">
+            <div class="slot__time">3:00 – 3:30&nbsp;pm</div>
+            <div class="slot__main"><h3>Break</h3></div>
+            <div class="slot__mod"><span class="slot__label">Moderator</span><span>—</span></div>
+            <div class="slot__room"><span class="slot__label">Room</span><span>Courtyard</span></div>
+          </li>
+
+          <li class="slot">
+            <div class="slot__time">3:30 – 5:00&nbsp;pm</div>
+            <div class="slot__main">
+              <h3><span class="slot__no">Session 5</span>Council of Councils Planning</h3>
+              <ul class="slot__detail">
+                <li>Open session</li>
+                <li>Brainstorming — Center PI attendance required</li>
+                <li>Center PIs required for the second half (30 min)</li>
+              </ul>
+            </div>
+            <div class="slot__mod"><span class="slot__label">Moderator</span><span>Christy Kano</span></div>
+            <div class="slot__room"><span class="slot__label">Room</span><span>Atkinson Pavilion</span></div>
+          </li>
+        </ol>
+
+        <p class="agenda__end">End of Day 1 · Optional social dinner events to follow</p>
+      </div>
+
+      <!-- ─────────── DAY 2 ─────────── -->
+      <div class="agenda" id="panel-day2" role="tabpanel" aria-labelledby="tab-day2" hidden>
+        <div class="agenda__head" aria-hidden="true">
+          <span>Time</span><span>Session</span><span>Moderator</span><span>Room</span>
+        </div>
+        <ol class="agenda__list">
+
+          <li class="slot slot--break">
+            <div class="slot__time">8:00 – 8:45&nbsp;am</div>
+            <div class="slot__main"><h3>Breakfast</h3></div>
+            <div class="slot__mod"><span class="slot__label">Moderator</span><span>—</span></div>
+            <div class="slot__room"><span class="slot__label">Room</span><span>Courtyard</span></div>
+          </li>
+
+          <li class="slot">
+            <div class="slot__time">8:45 – 9:00&nbsp;am</div>
+            <div class="slot__main"><h3>Debriefing</h3></div>
+            <div class="slot__mod"><span class="slot__label">Moderator</span><span>Jake Chen</span></div>
+            <div class="slot__room"><span class="slot__label">Room</span><span>Atkinson Pavilion</span></div>
+          </li>
+
+          <li class="slot">
+            <div class="slot__time">9:00 – 10:30&nbsp;am</div>
+            <div class="slot__main">
+              <h3><span class="slot__no">Session 6</span>Working Group Breakouts <span class="slot__note">(parallel)</span></h3>
+              <ul class="slot__detail">
+                <li>Ontology WG — Mano, Srini &amp; Daniel</li>
+                <li>Knowledge Graph WG — Deanna &amp; Jonathan</li>
+                <li>Evaluation WG — Casey</li>
+                <li>Training WG — Alyssa</li>
+                <li>Communication &amp; Outreach WG — Noel &amp; MacKenzie</li>
+              </ul>
+            </div>
+            <div class="slot__mod"><span class="slot__label">Moderator</span><span>WG leads</span></div>
+            <div class="slot__room"><span class="slot__label">Room</span><span>Breakout rooms <span class="slot__note">(4 rooms; two WGs may share)</span></span></div>
+          </li>
+
+          <li class="slot slot--break">
+            <div class="slot__time">10:30 – 10:45&nbsp;am</div>
+            <div class="slot__main"><h3>Coffee Break</h3></div>
+            <div class="slot__mod"><span class="slot__label">Moderator</span><span>—</span></div>
+            <div class="slot__room"><span class="slot__label">Room</span><span>Courtyard</span></div>
+          </li>
+
+          <li class="slot">
+            <div class="slot__time">10:45&nbsp;am – 12:00&nbsp;pm</div>
+            <div class="slot__main">
+              <h3><span class="slot__no">Session 7</span>Emerging Opportunities</h3>
+              <ul class="slot__detail">
+                <li>Readout from the Working Groups</li>
+                <li>Agentic AI Skills — Avi Ma'ayan</li>
+                <li>Event announcements — open to all</li>
+              </ul>
+            </div>
+            <div class="slot__mod"><span class="slot__label">Moderator</span><span>—</span></div>
+            <div class="slot__room"><span class="slot__label">Room</span><span>Atkinson Pavilion</span></div>
+          </li>
+
+          <li class="slot slot--break">
+            <div class="slot__time">12:00 – 1:30&nbsp;pm</div>
+            <div class="slot__main">
+              <h3>Lunch <span class="slot__note">(provided on-site)</span></h3>
+              <ul class="slot__detail">
+                <li>Steering Committee meeting over lunch</li>
+              </ul>
+            </div>
+            <div class="slot__mod"><span class="slot__label">Moderator</span><span>—</span></div>
+            <div class="slot__room"><span class="slot__label">Room</span><span>Courtyard</span></div>
+          </li>
+
+          <li class="slot">
+            <div class="slot__time">1:30 – 2:30&nbsp;pm</div>
+            <div class="slot__main">
+              <h3><span class="slot__no">Session 8</span>Future Directions for CFDE</h3>
+              <ul class="slot__detail">
+                <li>Evaluation — Casey Greene; sustainability — Peipei Ping &amp; Wei Wang</li>
+                <li>Brainstorming for expanding the CFDE user base</li>
+                <li>Collaborations within and beyond CFDE</li>
+              </ul>
+            </div>
+            <div class="slot__mod"><span class="slot__label">Moderator</span><span>Shankar Subramaniam</span></div>
+            <div class="slot__room"><span class="slot__label">Room</span><span>Atkinson Pavilion</span></div>
+          </li>
+
+          <li class="slot">
+            <div class="slot__time">2:30&nbsp;pm</div>
+            <div class="slot__main">
+              <h3>Wrap-Up</h3>
+              <ul class="slot__detail">
+                <li>Action items</li>
+              </ul>
+            </div>
+            <div class="slot__mod"><span class="slot__label">Moderator</span><span>Christy Kano &amp; Jake Chen</span></div>
+            <div class="slot__room"><span class="slot__label">Room</span><span>Atkinson Pavilion</span></div>
+          </li>
+        </ol>
+
+        <p class="agenda__end">End of Day 2</p>
+      </div>
+
+      <p class="finenote">Draft agenda — subject to change. Rooms for coffee breaks and some Day 2 sessions are
+        still being confirmed.</p>
     </div>
   </section>
 
@@ -203,6 +433,42 @@
               to La Jolla depending on traffic.</p>
           </div>
         </div>
+      </div>
+
+      <div class="maps">
+        <figure class="map">
+          <a class="map__frame" href="assets/venue-layout.jpg" target="_blank" rel="noopener"
+             aria-label="Open the Faculty Club floor plan full size">
+            <img src="assets/venue-layout.jpg" width="1763" height="979" loading="lazy"
+                 alt="Floor plan of the Faculty Club showing Atkinson Pavilion with 12 round tables, the Seuss Library, Classrooms 1–3 and 4–5, the Covered Courtyard with check-in table and buffet, Cecil's Café, and the Dining Room.">
+            <span class="map__zoom" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.3-4.3M11 8.5v5M8.5 11h5"/></svg>
+              View full size
+            </span>
+          </a>
+          <figcaption>
+            <strong>Venue layout</strong>
+            Plenary sessions are in the <b>Atkinson Pavilion</b>; check-in and meals are in the
+            <b>Covered Courtyard</b>. Also set for the meeting: the Seuss Library and Classrooms 1–3 and 4–5.
+          </figcaption>
+        </figure>
+
+        <figure class="map">
+          <a class="map__frame" href="assets/parking-map.jpg" target="_blank" rel="noopener"
+             aria-label="Open the parking map full size">
+            <img src="assets/parking-map.jpg" width="1223" height="791" loading="lazy"
+                 alt="Campus map around the Ida and Cecil Green Faculty Club, showing the visitor lot beside the Faculty Club on Muir Lane and lots P203, P204 and P205 along Scholars Drive South.">
+            <span class="map__zoom" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.3-4.3M11 8.5v5M8.5 11h5"/></svg>
+              View full size
+            </span>
+          </a>
+          <figcaption>
+            <strong>Parking</strong>
+            The visitor lot (<b>V</b>) sits beside the Faculty Club on Muir Lane. Lots P203–P205 along
+            Scholars Drive South are a short walk away.
+          </figcaption>
+        </figure>
       </div>
     </div>
   </section>
