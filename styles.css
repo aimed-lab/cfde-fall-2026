@@ -130,7 +130,7 @@ a{color:var(--blue-dark)}
 .btn--invert:hover{background:#eaf3fa; transform:translateY(-2px); box-shadow:0 10px 26px rgba(0,0,0,.22)}
 
 @media (prefers-reduced-motion:reduce){
-  .btn,.btn svg,.card,.hotel,.slot__chev svg{transition:none !important}
+  .btn,.btn svg,.hotel,.slot__chev svg,.zoomable__hint{transition:none !important}
   .slot__more:not([hidden]){animation:none}
   .btn:hover{transform:none}
 }
@@ -462,54 +462,93 @@ a{color:var(--blue-dark)}
 }
 .wgs li{padding:9px 0; border-top:1px dashed var(--line)}
 
-/* ── Venue maps ──────────────────────────────────────────── */
-.maps{display:grid; grid-template-columns:1.35fr 1fr; gap:22px; margin-top:22px}
-.map{margin:0; background:#fff; border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-sm)}
-.map__frame{position:relative; display:block; background:#f4f6f8; border-bottom:1px solid var(--line)}
-.map__frame img{width:100%; height:auto; aspect-ratio:auto}
-.map__zoom{
+/* ── Venue ───────────────────────────────────────────────── */
+
+/* Where: name, address, directions, then three at-a-glance facts. */
+.place{
+  display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center;
+  gap:18px 28px;
+  background:linear-gradient(160deg,#fff 0%,#f5fafd 100%);
+  border:1px solid #cfe1ee; border-radius:var(--radius);
+  padding:clamp(22px,3vw,30px); box-shadow:var(--shadow-sm);
+}
+.place__main{display:flex; align-items:flex-start; gap:16px}
+.place__pin{
+  flex:none; display:grid; place-items:center; width:46px; height:46px; border-radius:12px;
+  background:linear-gradient(135deg,var(--teal),var(--blue));
+  box-shadow:0 6px 16px rgba(31,111,178,.28);
+}
+.place__pin svg{width:24px; height:24px; fill:none; stroke:#fff; stroke-width:2; stroke-linejoin:round}
+.place__name{margin:0; font-size:clamp(1.15rem,2.2vw,1.35rem); font-weight:750; color:var(--navy-800); letter-spacing:-.01em; line-height:1.3}
+.place__addr{margin:4px 0 0; font-style:normal; color:var(--ink-soft); font-size:1rem}
+.place__actions{display:flex; flex-wrap:wrap; gap:10px; justify-content:flex-end}
+.place__actions .btn{font-size:.93rem; padding:12px 20px}
+
+.facts{
+  grid-column:1 / -1;
+  list-style:none; margin:4px 0 0; padding:18px 0 0;
+  border-top:1px solid var(--line);
+  display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:14px 24px;
+}
+.facts li{display:flex; align-items:flex-start; gap:12px}
+.facts__ico{
+  flex:none; display:grid; place-items:center; width:36px; height:36px; border-radius:10px;
+  background:rgba(46,147,163,.12);
+}
+.facts__ico svg{width:19px; height:19px; fill:none; stroke:#1f7482; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round}
+.facts b{display:block; font-size:.95rem; font-weight:650; color:var(--ink); line-height:1.35}
+.facts span{display:block; margin-top:2px; font-size:.87rem; color:var(--ink-soft); line-height:1.45}
+
+/* Parking and rooms: a map beside what it means, one panel per question. */
+.vpanel{
+  display:grid; grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);
+  margin-top:22px; overflow:hidden;
+  background:#fff; border:1px solid var(--line); border-radius:var(--radius);
+  box-shadow:var(--shadow-sm);
+}
+.vpanel__media{margin:0; background:#f4f6f8; border-right:1px solid var(--line); display:flex}
+.vpanel__body{padding:clamp(22px,3vw,30px)}
+.vpanel__kicker{
+  margin:0 0 4px; font-size:.72rem; font-weight:700; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--teal);
+}
+.vpanel__title{margin:0 0 14px; font-size:1.2rem; font-weight:750; color:var(--navy-800)}
+
+/* The map/plan is a link to the full-size image — important on phones. */
+.zoomable{position:relative; display:flex; align-items:center; width:100%}
+.zoomable img{width:100%; height:auto; display:block}
+.zoomable__hint{
   position:absolute; right:12px; bottom:12px;
   display:inline-flex; align-items:center; gap:6px;
-  background:rgba(13,31,51,.82); color:#fff;
+  background:rgba(13,31,51,.84); color:#fff;
   font-size:.8rem; font-weight:600; padding:7px 12px; border-radius:999px;
   transition:background .18s ease;
 }
-.map__zoom svg{width:15px; height:15px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round}
-.map__frame:hover .map__zoom{background:var(--blue)}
-.map figcaption{padding:16px 20px 18px; font-size:.93rem; color:var(--ink-soft); line-height:1.6}
-.map figcaption strong{display:block; margin-bottom:3px; font-size:1.02rem; color:var(--navy-800)}
-.map figcaption b{color:var(--ink); font-weight:650}
+.zoomable__hint svg{width:15px; height:15px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round}
+.zoomable:hover .zoomable__hint, .zoomable:focus-visible .zoomable__hint{background:var(--blue)}
 
-/* ── Cards / venue ───────────────────────────────────────── */
-.venue{display:grid; grid-template-columns:1fr 1fr; gap:22px; align-items:start}
-.stack{display:grid; gap:22px}
+.vlist, .rooms{list-style:none; margin:0; padding:0; display:grid}
+.vlist li{position:relative; padding:10px 0 10px 22px; border-top:1px dashed var(--line)}
+.vlist li:first-child{border-top:0; padding-top:0}
+.vlist li::before{
+  content:""; position:absolute; left:2px; top:17px;
+  width:8px; height:8px; border-radius:50%; background:var(--teal);
+}
+.vlist li:first-child::before{top:7px}
+.vlist b, .rooms b{display:block; font-size:.97rem; font-weight:650; color:var(--ink)}
+.vlist span, .rooms span{display:block; margin-top:2px; font-size:.9rem; color:var(--ink-soft); line-height:1.5}
 
-.card{
-  background:#fff; border:1px solid var(--line); border-radius:var(--radius);
-  padding:clamp(22px,3vw,30px); box-shadow:var(--shadow-sm);
-  transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
-}
-.card p{margin:0; color:var(--ink-soft)}
-.card__title{
-  display:flex; align-items:center; gap:11px;
-  margin:0 0 12px; font-size:1.12rem; font-weight:700; color:var(--navy-800);
-}
-.ico{
-  flex:none; display:grid; place-items:center; width:30px; height:30px; border-radius:9px;
-  background:linear-gradient(135deg,rgba(46,147,163,.15),rgba(31,111,178,.15));
-  color:var(--blue-dark); font-size:.9rem; font-weight:700;
-}
+/* The floor plan is wide and detailed, so it gets the full panel width,
+   under a room guide laid out as a row of tiles. */
+.vpanel--wide{grid-template-columns:1fr}
+.vpanel--wide .vpanel__media{border-right:0; border-top:1px solid var(--line)}
+.vpanel--wide .rooms{grid-template-columns:repeat(auto-fit, minmax(190px,1fr)); gap:10px}
 
-.card--venue{
-  background:linear-gradient(160deg,#fff 0%,#f6fbfd 100%);
-  border-color:#cfe1ee;
+.rooms{gap:8px}
+.rooms li{
+  padding:10px 14px; border-radius:10px;
+  background:var(--tint); border-left:3px solid var(--teal);
 }
-.addr{
-  font-style:normal; margin:0 0 22px; font-size:1.06rem; line-height:1.7; color:var(--ink);
-  padding-left:16px; border-left:3px solid var(--teal);
-}
-.linkrow{display:flex; flex-wrap:wrap; gap:11px}
-.linkrow .btn{font-size:.92rem; padding:12px 20px}
 
 /* ── Hotels ──────────────────────────────────────────────── */
 .hotels{
@@ -599,12 +638,14 @@ a{color:var(--blue-dark)}
   /* Single-period ranges still fit; only the two cross-noon ranges wrap, at the dash. */
   .agenda{--cols: 138px minmax(0,1fr) 146px 136px}
   .agenda__head, .slot{gap:0 18px; padding-inline:20px}
-  .maps{grid-template-columns:1fr}
 }
 
 @media (max-width:900px){
   .regcard{grid-template-columns:1fr}
-  .venue{grid-template-columns:1fr}
+  .place{grid-template-columns:1fr}
+  .place__actions{justify-content:flex-start}
+  .vpanel{grid-template-columns:1fr}
+  .vpanel:not(.vpanel--wide) .vpanel__media{border-right:0; border-bottom:1px solid var(--line)}
   .hero__facts{grid-template-columns:1fr; max-width:520px}
   .foot__inner{grid-template-columns:1fr; gap:26px}
 }
@@ -633,8 +674,10 @@ a{color:var(--blue-dark)}
 
   .hero__actions{flex-direction:column; align-items:stretch}
   .hero__actions .btn{width:100%}
-  .linkrow{flex-direction:column; align-items:stretch}
-  .linkrow .btn{width:100%}
+  .place__actions{flex-direction:column; align-items:stretch}
+  .place__actions .btn{width:100%}
+  .facts{grid-template-columns:1fr; gap:14px}
+  .place__pin{width:40px; height:40px}
   .regcard__cta .btn{width:100%}
   .closing .btn{width:100%; max-width:420px}
 
@@ -711,7 +754,7 @@ a{color:var(--blue-dark)}
 
 /* Print */
 @media print{
-  .topbar,.hero__mesh,.hero__actions,.closing,.tabs,.map__zoom,.agenda__tools,.slot__hint{display:none}
+  .topbar,.hero__mesh,.hero__actions,.closing,.tabs,.zoomable__hint,.agenda__tools,.slot__hint{display:none}
   /* Print every session's details, whatever is open on screen. */
   .slot__more[hidden]{display:block}
   /* Print both days, not just the selected tab. */

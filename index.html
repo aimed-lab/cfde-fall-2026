@@ -148,8 +148,6 @@
     <div class="wrap">
       <p class="kicker">Program</p>
       <h2 class="h2">Agenda</h2>
-      <p class="lede">A high-level view of the two-day program. Session details and speakers are still being
-        confirmed, so times and rooms may shift before the meeting.</p>
 
       <div class="agenda-bar">
         <div class="tabs" role="tablist" aria-label="Meeting days">
@@ -538,79 +536,106 @@
       <p class="lede">The meeting is hosted at the Ida and Cecil Green Faculty Club on the UC San Diego campus
         in La Jolla.</p>
 
-      <div class="venue">
-        <div class="card card--venue">
-          <h3 class="card__title">Ida &amp; Cecil Green Faculty Club</h3>
-          <address class="addr">
-            UC San Diego<br>
-            9500 Gilman Drive<br>
-            La Jolla, CA 92093
-          </address>
-          <div class="linkrow">
-            <a class="btn btn--outline" href="https://maps.app.goo.gl/GEszoHw7Tt52r4us6" target="_blank" rel="noopener">
-              Open in Google Maps
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
-            </a>
-            <a class="btn btn--outline" href="https://facclub.ucsd.edu/directions/index.html" target="_blank" rel="noopener">
-              Official directions
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
-            </a>
+      <!-- Where: address, directions, and the at-a-glance facts -->
+      <div class="place">
+        <div class="place__main">
+          <span class="place__pin" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+          </span>
+          <div>
+            <h3 class="place__name">Ida &amp; Cecil Green Faculty Club</h3>
+            <address class="place__addr">9500 Gilman Drive, La Jolla, CA 92093 · UC San Diego</address>
           </div>
+        </div>
+        <div class="place__actions">
+          <a class="btn btn--primary" href="https://maps.app.goo.gl/GEszoHw7Tt52r4us6" target="_blank" rel="noopener">
+            Get directions
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+          </a>
+          <a class="btn btn--outline" href="https://facclub.ucsd.edu/directions/index.html" target="_blank" rel="noopener">
+            Faculty Club directions
+          </a>
         </div>
 
-        <div class="stack">
-          <div class="card">
-            <h3 class="card__title"><span class="ico" aria-hidden="true">P</span>Parking</h3>
-            <p>A permit is required on campus <strong>seven days a week</strong>. Lot&nbsp;P206 sits next to the
-              Faculty Club but has very limited spaces; the larger <strong>Scholars parking lot</strong> is the
-              better bet. Allow extra time — nearby construction has reduced availability.</p>
-          </div>
-          <div class="card">
-            <h3 class="card__title"><span class="ico" aria-hidden="true">◎</span>Remote participation</h3>
-            <p>A remote connection link will be circulated to registered participants ahead of the meeting.
-              Register through the form above to receive it.</p>
-          </div>
-          <div class="card">
-            <h3 class="card__title"><span class="ico" aria-hidden="true">✈</span>Air travel</h3>
-            <p>San Diego International Airport (SAN) is the closest airport, roughly a 20–30&nbsp;minute drive
-              to La Jolla depending on traffic.</p>
-          </div>
-        </div>
+        <ul class="facts">
+          <li>
+            <span class="facts__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span>
+            <div><b>Check-in opens 8:00 am</b><span>Tue, Oct 13 · Covered Courtyard</span></div>
+          </li>
+          <li>
+            <span class="facts__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M10.5 13.5L3 11l1.5-1.5 7 1 4-4.5c1-1 2.6-1.2 3.3-.5.7.7.5 2.3-.5 3.3l-4.5 4 1 7L13.3 21l-2.5-7.5"/></svg></span>
+            <div><b>Fly into San Diego (SAN)</b><span>About 20–30 minutes by car</span></div>
+          </li>
+          <li>
+            <span class="facts__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="12" rx="2"/><path d="M8.5 20h7M12 16.5V20"/></svg></span>
+            <div><b>Joining remotely?</b><span>The link is sent to registrants before the meeting</span></div>
+          </li>
+        </ul>
       </div>
 
-      <div class="maps">
-        <figure class="map">
-          <a class="map__frame" href="assets/venue-layout.jpg" target="_blank" rel="noopener"
-             aria-label="Open the Faculty Club floor plan full size">
-            <img src="assets/venue-layout.jpg" width="1763" height="979" loading="lazy"
-                 alt="Floor plan of the Faculty Club showing Atkinson Pavilion with 12 round tables, the Seuss Library, Classrooms 1–3 and 4–5, the Covered Courtyard with check-in table and buffet, Cecil's Café, and the Dining Room.">
-            <span class="map__zoom" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.3-4.3M11 8.5v5M8.5 11h5"/></svg>
-              View full size
-            </span>
-          </a>
-          <figcaption>
-            <strong>Venue layout</strong>
-            Plenary sessions are in the <b>Atkinson Pavilion</b>; check-in and meals are in the
-            <b>Covered Courtyard</b>. Also set for the meeting: the Seuss Library and Classrooms 1–3 and 4–5.
-          </figcaption>
-        </figure>
-
-        <figure class="map">
-          <a class="map__frame" href="assets/parking-map.jpg" target="_blank" rel="noopener"
+      <!-- Parking: map + what to know, side by side -->
+      <div class="vpanel" id="parking">
+        <figure class="vpanel__media">
+          <a class="zoomable" href="assets/parking-map.jpg" target="_blank" rel="noopener"
              aria-label="Open the parking map full size">
             <img src="assets/parking-map.jpg" width="1223" height="791" loading="lazy"
                  alt="Campus map around the Ida and Cecil Green Faculty Club, showing the visitor lot beside the Faculty Club on Muir Lane and lots P203, P204 and P205 along Scholars Drive South.">
-            <span class="map__zoom" aria-hidden="true">
+            <span class="zoomable__hint" aria-hidden="true">
               <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.3-4.3M11 8.5v5M8.5 11h5"/></svg>
-              View full size
+              Enlarge map
             </span>
           </a>
-          <figcaption>
-            <strong>Parking</strong>
-            The visitor lot (<b>V</b>) sits beside the Faculty Club on Muir Lane. Lots P203–P205 along
-            Scholars Drive South are a short walk away.
-          </figcaption>
+        </figure>
+        <div class="vpanel__body">
+          <p class="vpanel__kicker">Step 1</p>
+          <h3 class="vpanel__title">Parking</h3>
+          <ul class="vlist">
+            <li><b>Permit required</b><span>Campus parking needs a permit seven days a week.</span></li>
+            <li><b>Closest: Lot P206</b><span>Right beside the Faculty Club, but spaces are very limited.</span></li>
+            <li><b>Best bet: Scholars lot</b><span>Larger, and the one to try if P206 is full. Lots P203–P205 on Scholars Drive South are also a short walk.</span></li>
+            <li><b>Leave extra time</b><span>Nearby construction has reduced the number of spaces.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Rooms: which session is where, then the floor plan full width -->
+      <div class="vpanel vpanel--wide" id="rooms">
+        <div class="vpanel__body">
+          <p class="vpanel__kicker">Step 2</p>
+          <h3 class="vpanel__title">Find your room</h3>
+          <ul class="rooms">
+            <li>
+              <b>Covered Courtyard</b>
+              <span>Check-in, breakfast, lunch and breaks</span>
+            </li>
+            <li>
+              <b>Atkinson Pavilion</b>
+              <span>Main sessions · Tech Showcase A · Training and Communication &amp; Outreach WGs</span>
+            </li>
+            <li>
+              <b>Seuss Library</b>
+              <span>Tech Showcase B · Knowledge Graph WG</span>
+            </li>
+            <li>
+              <b>Classrooms 1–3</b>
+              <span>Tech Showcase C · Ontology WG</span>
+            </li>
+            <li>
+              <b>Classrooms 4–5</b>
+              <span>Tech Showcase D · Evaluation WG</span>
+            </li>
+          </ul>
+        </div>
+        <figure class="vpanel__media">
+          <a class="zoomable" href="assets/venue-layout.jpg" target="_blank" rel="noopener"
+             aria-label="Open the Faculty Club floor plan full size">
+            <img src="assets/venue-layout.jpg" width="1763" height="979" loading="lazy"
+                 alt="Floor plan of the Faculty Club showing Atkinson Pavilion with 12 round tables, the Seuss Library, Classrooms 1–3 and 4–5, the Covered Courtyard with check-in table and buffet, Cecil's Café, and the Dining Room.">
+            <span class="zoomable__hint" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.3-4.3M11 8.5v5M8.5 11h5"/></svg>
+              Enlarge floor plan
+            </span>
+          </a>
         </figure>
       </div>
     </div>
