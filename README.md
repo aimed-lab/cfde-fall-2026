@@ -40,16 +40,16 @@ npx vercel --prod
 Two options were discussed. Pick one, then **update the `<link rel="canonical">`
 and `og:url` in `index.html` to match.**
 
-### Option A — `fall-2026.cfdeconnect.org` (recommended, fastest)
+### Option A — `fall2026.cfdeconnect.org` (in use)
 
 A subdomain is the lowest-risk path: it does not touch the existing WordPress site.
 
-1. Vercel → Project → **Settings → Domains** → add `fall-2026.cfdeconnect.org`.
+1. Vercel → Project → **Settings → Domains** → add `fall2026.cfdeconnect.org`.
 2. Vercel shows a CNAME target. In the DNS host for `cfdeconnect.org`, add:
 
    | Type | Name | Value |
    |---|---|---|
-   | CNAME | `fall-2026` | `cname.vercel-dns.com` |
+   | CNAME | `fall2026` | `cname.vercel-dns.com` |
 
 3. Wait for propagation (usually minutes). Vercel issues the TLS certificate automatically.
 
@@ -80,8 +80,14 @@ or linked from the main site menu afterward.
 
 Everything is plain HTML in `index.html`, no templating.
 
-- **Agenda** — replace the `<div class="soon">` block inside `<section id="agenda">`
-  with the real schedule when it is finalized.
+- **Agenda** — each day is a tab panel (`#panel-day1`, `#panel-day2`) holding an
+  `<ol class="agenda__list">`; each row is one `<li class="slot">` with time, session,
+  moderator, and room. Rows with extra details (`slot--expandable`) keep them in a
+  `<div class="slot__more">` and open on click — the toggle button's `aria-controls`
+  must match that div's `id`. Tech Showcase tracks and Working Group rooms are the
+  `<div class="breakouts">` blocks under Sessions 3 and 6.
+- **Room guide** — `<ul class="rooms">` in the Venue section repeats which sessions use
+  which room. Update it whenever a room assignment changes in the agenda.
 - **Registration form** — the Google Form URL `https://forms.gle/APutb85vMVu5AA2A8`
   appears in 4 places (nav, hero, registration card, closing CTA). Update all of them.
 - **Hotels** — each is one `<li class="hotel">` in `<section id="hotels">`.
