@@ -19,13 +19,6 @@
   --green:#6e9573;   /* hexagon, CFDE CONNECT mark */
   --violet:#8480a6;  /* hexagon, CFDE CONNECT mark */
 
-  /* Warm accent, reserved for the registration deadline so it reads as
-     time-sensitive against the otherwise cool brand palette. */
-  --amber:#e8a13a;
-  --amber-ink:#8a5209;
-  --amber-tint:#fdf4e4;
-  --amber-line:#f0d5a6;
-
   --paper:#ffffff;
   --tint:#f3f7fa;
   --line:#dde6ee;
@@ -210,18 +203,19 @@ a{color:var(--blue-dark)}
 
 .hero__actions{display:flex; flex-wrap:wrap; gap:12px; justify-content:center}
 
-/* Inline flow, not flex: a flex container would turn the leading text and the
-   date into separate items and put the gap where a plain space belongs. */
-.hero__deadline{
-  display:inline-block; margin:22px auto 0;
+/* Inline flow, not flex, so the sentence wraps naturally around the link. */
+.hero__status{
+  display:inline-block; margin:22px auto 0; max-width:62ch;
   font-size:clamp(.88rem,1.5vw,.97rem);
-  color:#e4d3b4; text-wrap:balance;
+  color:#c3d8e8; text-wrap:balance;
 }
-.hero__deadline strong{color:#fff; font-weight:650; white-space:nowrap}
-.hero__deadline-dot{
+.hero__status strong{color:#fff; font-weight:650}
+.hero__status a{color:#fff; font-weight:600; text-underline-offset:3px; text-decoration-color:rgba(255,255,255,.5)}
+.hero__status a:hover{text-decoration-color:#fff}
+.hero__status-dot{
   display:inline-block; vertical-align:middle;
   width:8px; height:8px; border-radius:50%; margin:-2px 10px 0 0;
-  background:var(--amber); box-shadow:0 0 0 4px rgba(232,161,58,.22);
+  background:#9fb6c8; box-shadow:0 0 0 4px rgba(159,182,200,.22);
 }
 
 /* ── Generic section furniture ───────────────────────────── */
@@ -242,49 +236,32 @@ a{color:var(--blue-dark)}
 }
 .lede{margin:0 0 clamp(26px,4vw,38px); max-width:68ch; font-size:clamp(1rem,1.6vw,1.1rem); color:var(--ink-soft); text-wrap:pretty}
 
-/* ── Registration ────────────────────────────────────────── */
-.deadline{
-  display:flex; align-items:flex-start; gap:14px;
-  background:var(--amber-tint);
-  border:1px solid var(--amber-line);
-  border-left:5px solid var(--amber);
-  border-radius:var(--radius);
-  padding:18px 22px;
-  margin:0 0 20px;
-}
-.deadline__icon{flex:none; display:grid; place-items:center; width:26px; height:26px; margin-top:1px}
-.deadline__icon svg{
-  width:24px; height:24px; fill:none; stroke:var(--amber-ink);
-  stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round;
-}
-.deadline__text{display:grid; gap:3px}
-.deadline__text strong{color:var(--amber-ink); font-weight:700; font-size:1.04rem; line-height:1.4}
-.deadline__text strong time{white-space:nowrap}
-.deadline__text span{color:#7a5a2e; font-size:.94rem}
-
-.regcard{
-  display:grid; grid-template-columns:1.35fr 1fr; gap:clamp(24px,4vw,44px); align-items:center;
+/* ── Registration (closed) ───────────────────────────────── */
+.closed{
+  display:grid; grid-template-columns:auto minmax(0,1fr) auto; align-items:center;
+  gap:18px 22px;
   background:#fff; border:1px solid var(--line); border-radius:var(--radius);
-  padding:clamp(26px,4vw,44px); box-shadow:var(--shadow-sm);
+  padding:clamp(22px,3.4vw,34px); box-shadow:var(--shadow-sm);
   position:relative; overflow:hidden;
 }
-.regcard::before{
+.closed::before{
   content:""; position:absolute; inset:0 auto 0 0; width:5px;
-  background:linear-gradient(180deg,var(--teal),var(--blue));
+  background:linear-gradient(180deg,#9fb6c8,var(--navy-600));
 }
-.regcard__body h3{margin:0 0 8px; font-size:1.24rem; font-weight:700; color:var(--navy-800)}
-.regcard__body > p{margin:0 0 18px; color:var(--ink-soft)}
+.closed__icon{
+  display:grid; place-items:center; width:48px; height:48px; border-radius:12px;
+  background:#eef3f7; align-self:start;
+}
+.closed__icon svg{width:24px; height:24px; fill:none; stroke:var(--navy-600); stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round}
+.closed__body h3{margin:0 0 6px; font-size:1.22rem; font-weight:750; color:var(--navy-800)}
+.closed__body p{margin:0; color:var(--ink); line-height:1.6}
+.closed__body p a{color:var(--blue-dark); font-weight:600}
+.closed__body time{white-space:nowrap}
+.closed__note{margin-top:8px !important; font-size:.92rem; color:var(--ink-soft) !important}
 
-.ticks{list-style:none; margin:0; padding:0; display:grid; gap:9px}
-.ticks li{position:relative; padding-left:29px; color:var(--ink); font-size:.97rem}
-.ticks li::before{
-  content:""; position:absolute; left:0; top:.52em;
-  width:15px; height:15px; border-radius:4px;
-  background:linear-gradient(135deg,var(--teal),var(--blue));
-  clip-path:polygon(14% 46%, 0 60%, 40% 100%, 100% 22%, 86% 8%, 38% 70%);
-}
-.regcard__cta{text-align:center}
-.regcard__note{margin:12px 0 0; font-size:.85rem; color:var(--ink-soft)}
+/* A leading icon inside a button (the default .btn svg is a trailing arrow). */
+.btn .btn__lead{width:18px; height:18px; stroke-width:1.9}
+.btn:hover .btn__lead{transform:none}
 
 /* ── Agenda ──────────────────────────────────────────────── */
 
@@ -593,14 +570,7 @@ a{color:var(--blue-dark)}
   color:#fff; text-align:center; padding:clamp(52px,7vw,84px) 0;
 }
 .closing h2{margin:0 0 8px; font-size:clamp(1.6rem,3.6vw,2.3rem); font-weight:750; letter-spacing:-.02em}
-.closing p{margin:0 0 15px; color:#b9d2e4; font-size:1.06rem}
-.closing__deadline{
-  display:inline-block; margin:0 0 26px !important;
-  background:rgba(232,161,58,.14); border:1px solid rgba(232,161,58,.45);
-  border-radius:999px; padding:8px 18px;
-  color:#f0dcb8 !important; font-size:.95rem !important;
-}
-.closing__deadline strong{color:#fff; font-weight:650; white-space:nowrap}
+.closing p{margin:0 0 26px; color:#b9d2e4; font-size:1.06rem}
 .closing__contact{margin:24px 0 0 !important; font-size:.95rem; color:#a6c3d8}
 .closing__contact a{color:#fff; text-decoration:underline; text-underline-offset:3px; text-decoration-color:rgba(255,255,255,.45)}
 .closing__contact a:hover{text-decoration-color:#fff}
@@ -643,7 +613,8 @@ a{color:var(--blue-dark)}
 }
 
 @media (max-width:900px){
-  .regcard{grid-template-columns:1fr}
+  .closed{grid-template-columns:auto minmax(0,1fr)}
+  .closed__cta{grid-column:1 / -1}
   .place{grid-template-columns:1fr}
   .place__actions{justify-content:flex-start}
   .vpanel{grid-template-columns:1fr}
@@ -680,7 +651,9 @@ a{color:var(--blue-dark)}
   .place__actions .btn{width:100%}
   .facts{grid-template-columns:1fr; gap:14px}
   .place__pin{width:40px; height:40px}
-  .regcard__cta .btn{width:100%}
+  .closed{grid-template-columns:1fr}
+  .closed__icon{width:42px; height:42px}
+  .closed__cta .btn{width:100%}
   .closing .btn{width:100%; max-width:420px}
 
   /* Agenda on phones: each slot becomes its own card. Time leads, the

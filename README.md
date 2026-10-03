@@ -88,8 +88,10 @@ Everything is plain HTML in `index.html`, no templating.
   `<div class="breakouts">` blocks under Sessions 3 and 6.
 - **Room guide** — `<ul class="rooms">` in the Venue section repeats which sessions use
   which room. Update it whenever a room assignment changes in the agenda.
-- **Registration form** — the Google Form URL `https://forms.gle/APutb85vMVu5AA2A8`
-  appears in 4 places (nav, hero, registration card, closing CTA). Update all of them.
+- **Registration** — closed on October 2, 2026. The page no longer links to the Google
+  Form; late requests go to `cfde.icc@gmail.com` via the "Registration is closed" card
+  (`<div class="closed">`) and the hero status line. To reopen, restore a form link in
+  the registration section and put a Register button back in the nav and hero.
 - **Hotels** — each is one `<li class="hotel">` in `<section id="hotels">`.
 
 ## Notes
