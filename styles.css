@@ -397,29 +397,6 @@ a{color:var(--blue-dark)}
 }
 #agenda .finenote{margin-top:16px}
 
-/* Key for the affiliation acronyms used in the agenda; collapsed by default. */
-.abbrevs{margin-top:12px; font-size:.9rem}
-.abbrevs summary{
-  display:inline-flex; align-items:center; gap:6px; cursor:pointer;
-  font-weight:650; color:var(--blue-dark); list-style:none;
-}
-.abbrevs summary::-webkit-details-marker{display:none}
-.abbrevs summary::after{
-  content:""; width:7px; height:7px; margin-top:-3px;
-  border-right:2px solid currentColor; border-bottom:2px solid currentColor;
-  transform:rotate(45deg); transition:transform .2s ease;
-}
-.abbrevs[open] summary::after{transform:rotate(-135deg); margin-top:3px}
-.abbrevs summary:focus-visible{outline:3px solid var(--teal); outline-offset:3px; border-radius:4px}
-.abbrevs dl{
-  margin:12px 0 0; padding:16px 20px;
-  display:grid; grid-template-columns:repeat(auto-fill, minmax(280px,1fr)); gap:6px 24px;
-  background:#fff; border:1px solid var(--line); border-radius:12px;
-}
-.abbrevs dl > div{display:flex; gap:10px; align-items:baseline}
-.abbrevs dt{flex:none; min-width:92px; font-weight:700; color:var(--navy-800)}
-.abbrevs dd{margin:0; color:var(--ink-soft)}
-
 /* Parallel breakouts (Tech Showcase, Working Groups): a full-width block
    under the session row, one card per room. */
 .breakouts{
