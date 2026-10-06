@@ -176,8 +176,12 @@ if (!window.copilot && !document.querySelector('script[src*="script.copilot.live
       var chat = host && (findChat(host.shadowRoot) || findChat(host));
       var r = chat && chat.getBoundingClientRect();
       if (!r || !r.width || r.width > 80) return false;   // missing, or the chat panel is open
-      btn.style.right = Math.round(innerWidth - r.right + (r.width - 56) / 2) + 'px';
-      btn.style.bottom = Math.round(innerHeight - r.top + 14) + 'px';
+      // Fixed-position right/bottom are measured from the inside of the scrollbar,
+      // so use clientWidth/Height. innerWidth/Height include the scrollbar and
+      // would shift the button left of the bubble by the scrollbar's width.
+      var vw = document.documentElement.clientWidth, vh = document.documentElement.clientHeight;
+      btn.style.right = Math.round(vw - r.right + (r.width - btn.offsetWidth) / 2) + 'px';
+      btn.style.bottom = Math.round(vh - r.top + 14) + 'px';
       return true;
     }
     var tries = 0, poll = setInterval(function () {
