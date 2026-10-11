@@ -90,7 +90,7 @@ Everything is plain HTML in `index.html`, no templating.
   which room. Update it whenever a room assignment changes in the agenda.
 - **Meeting portal** — the `#portal` section (where the registration block used to be)
   promotes portal.cfdeconnect.org: invite notice, four sign-up steps taken from the
-  portal flyer, an "Open the meeting portal" button, and `assets/portal-qr.png` (shown on
+  portal flyer, an "Open the meeting portal" button, and `assets/portal-qr-home.png` (shown on
   desktop only, since phone visitors are already on their phone). Registration closed on
   October 2; late requests go to `cfde.icc@gmail.com` (one line under the portal card).
 - **Hotels** — each is one `<li class="hotel">` in `<section id="hotels">`.
