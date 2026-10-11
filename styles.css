@@ -190,6 +190,8 @@ a{color:var(--blue-dark)}
 }
 .hero__facts dd{margin:0; font-weight:650; font-size:1.02rem; color:#fff; line-height:1.4}
 .hero__facts dd span{display:block; font-weight:400; font-size:.9rem; color:#a9c5da; margin-top:3px}
+.hero__zoom{color:#fff; font-weight:600; text-decoration:underline; text-underline-offset:3px; text-decoration-color:rgba(255,255,255,.5)}
+.hero__zoom:hover{text-decoration-color:#fff}
 
 .hero__actions{display:flex; flex-wrap:wrap; gap:12px; justify-content:center}
 
@@ -492,6 +494,7 @@ a{color:var(--blue-dark)}
 /* Scoped to the text column: a bare ".facts span" would also hit the icon
    box (.facts__ico) and override its centering. */
 .facts li > div b{display:block; font-size:.95rem; font-weight:650; color:var(--ink); line-height:1.35}
+.facts li > div span a{color:var(--blue-dark); font-weight:600}
 .facts li > div span{display:block; margin-top:2px; font-size:.87rem; color:var(--ink-soft); line-height:1.45}
 
 /* Parking and rooms: a map beside what it means, one panel per question. */
