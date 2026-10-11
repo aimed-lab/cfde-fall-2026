@@ -88,10 +88,11 @@ Everything is plain HTML in `index.html`, no templating.
   `<div class="breakouts">` blocks under Sessions 3 and 6.
 - **Room guide** — `<ul class="rooms">` in the Venue section repeats which sessions use
   which room. Update it whenever a room assignment changes in the agenda.
-- **Registration** — closed on October 2, 2026. The page no longer links to the Google
-  Form; late requests go to `cfde.icc@gmail.com` via the "Registration is closed" card
-  (`<div class="closed">`) and the hero status line. To reopen, restore a form link in
-  the registration section and put a Register button back in the nav and hero.
+- **Meeting portal** — the `#portal` section (where the registration block used to be)
+  promotes portal.cfdeconnect.org/fall26: invite notice, four sign-up steps taken from the
+  portal flyer, an "Open the meeting portal" button, and `assets/portal-qr.png` (shown on
+  desktop only, since phone visitors are already on their phone). Registration closed on
+  October 2; late requests go to `cfde.icc@gmail.com` (one line under the portal card).
 - **Hotels** — each is one `<li class="hotel">` in `<section id="hotels">`.
 
 ## Notes
