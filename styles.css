@@ -33,6 +33,9 @@
 }
 
 *,*::before,*::after{box-sizing:border-box}
+/* `hidden` must win over component display rules (inline-flex buttons etc.).
+   The portal promotion is switched off with [data-portal][hidden]; see README. */
+[hidden]{display:none !important}
 html{-webkit-text-size-adjust:100%; scroll-behavior:smooth; scroll-padding-top:84px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
@@ -750,9 +753,9 @@ a{color:var(--blue-dark)}
 @media print{
   .topbar,.hero__mesh,.hero__actions,.closing,.tabs,.zoomable__hint,.agenda__tools,.slot__hint{display:none}
   /* Print every session's details, whatever is open on screen. */
-  .slot__more[hidden]{display:block}
+  .slot__more[hidden]{display:block !important}
   /* Print both days, not just the selected tab. */
-  .agenda[hidden]{display:block; margin-top:24px}
+  .agenda[hidden]{display:block !important; margin-top:24px}
   body{color:#000}
   .hero{background:#fff; color:#000; padding:20px 0}
   .hero__title,.hero__facts dd{color:#000}

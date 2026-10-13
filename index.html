@@ -38,7 +38,7 @@
 
     <nav class="nav" id="nav" aria-label="Section navigation">
       <a href="https://cfdeconnect.org/">Home</a>
-      <a href="#portal">Portal</a>
+      <a href="#portal" data-portal hidden>Portal</a>
       <a href="#venue">Venue</a>
       <a href="#hotels">Hotels</a>
       <a class="nav__cta" href="#agenda">View agenda</a>
@@ -95,7 +95,7 @@
         <a class="btn btn--ghost" href="#venue">Venue &amp; travel</a>
       </div>
 
-      <p class="hero__status">
+      <p class="hero__status" data-portal hidden>
         <span class="hero__status-dot" aria-hidden="true"></span>
         <strong>Registered?</strong>
         Check your email for your invitation to the <a href="#portal">meeting portal</a>
@@ -104,7 +104,7 @@
   </section>
 
   <!-- ══════════════ MEETING PORTAL ══════════════ -->
-  <section class="section" id="portal">
+  <section class="section" id="portal" data-portal hidden>
     <div class="wrap">
       <p class="kicker">For registered attendees</p>
       <h2 class="h2">Your meeting portal</h2>
@@ -732,11 +732,15 @@
     <div class="wrap closing__inner">
       <h2>See you in La Jolla</h2>
       <p>October 13–14, 2026 · UC San Diego</p>
-      <a class="btn btn--invert btn--lg" href="https://portal.cfdeconnect.org/" target="_blank" rel="noopener">
+      <a class="btn btn--invert btn--lg" href="#agenda" data-portal-alt>
+        View the agenda
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+      </a>
+      <a class="btn btn--invert btn--lg" href="https://portal.cfdeconnect.org/" target="_blank" rel="noopener" data-portal hidden>
         Open the meeting portal
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
       </a>
-      <p class="closing__contact">Questions about the meeting or the portal? Email
+      <p class="closing__contact">Questions about the meeting<span data-portal hidden> or the portal</span>? Email
         <a href="mailto:cfde.icc@gmail.com">cfde.icc@gmail.com</a></p>
     </div>
   </section>
@@ -762,7 +766,7 @@
       <a href="https://cfdeconnect.org/" target="_blank" rel="noopener">CFDE CONNECT</a>
       <a href="https://cfde.cloud/" target="_blank" rel="noopener">CFDE Data Portal</a>
       <a href="#agenda">Agenda</a>
-      <a href="https://portal.cfdeconnect.org/" target="_blank" rel="noopener">Meeting portal</a>
+      <a href="https://portal.cfdeconnect.org/" target="_blank" rel="noopener" data-portal hidden>Meeting portal</a>
     </nav>
   </div>
   <div class="wrap foot__legal">

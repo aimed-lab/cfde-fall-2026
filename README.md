@@ -88,6 +88,9 @@ Everything is plain HTML in `index.html`, no templating.
   `<div class="breakouts">` blocks under Sessions 3 and 6.
 - **Room guide** — `<ul class="rooms">` in the Venue section repeats which sessions use
   which room. Update it whenever a room assignment changes in the agenda.
+- **Portal promotion is switched off (October 12, 2026).** Every portal element carries
+  `data-portal hidden`. To bring it back: remove `hidden` from each `data-portal` element in
+  `index.html`, and add `hidden` to the closing "View the agenda" button (`data-portal-alt`).
 - **Meeting portal** — the `#portal` section (where the registration block used to be)
   promotes portal.cfdeconnect.org: invite notice, four sign-up steps taken from the
   portal flyer, an "Open the meeting portal" button, and `assets/portal-qr-home.png` (shown on
