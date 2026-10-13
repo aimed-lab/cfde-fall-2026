@@ -459,6 +459,14 @@ a{color:var(--blue-dark)}
   background:rgba(132,128,166,.14); color:#5d5888;
 }
 .wgs li{padding:9px 0; border-top:1px dashed var(--line)}
+/* Remote-join link for a breakout that has its own Zoom room. */
+.wgs__zoom{
+  display:inline-flex; align-items:center; gap:6px; margin-top:6px;
+  font-size:.84rem; font-weight:650; color:var(--blue-dark); text-decoration:none;
+  padding:4px 10px; border-radius:999px; background:#e9f2fa; border:1px solid #cfe1ef;
+}
+.wgs__zoom:hover{background:#dcebf7; border-color:var(--blue)}
+.wgs__zoom svg{width:15px; height:15px; fill:none; stroke:currentColor; stroke-width:2; stroke-linejoin:round}
 
 /* ── Venue ───────────────────────────────────────────────── */
 
