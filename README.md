@@ -96,13 +96,10 @@ Everything is plain HTML in `index.html`, no templating.
   portal flyer, an "Open the meeting portal" button, and `assets/portal-qr-home.png` (shown on
   desktop only, since phone visitors are already on their phone). Registration closed on
   October 2; late requests go to `cfde.icc@gmail.com` (one line under the portal card).
-- **Hotels** — each is one `<li class="hotel">` in `<section id="hotels">`.
 
 ## Notes
 
-- There is **no room block** for this meeting; the hotel section says so explicitly
-  and links to each hotel's own booking site.
-- Hotel proximity labels ("Walk to campus" / "Short drive") are approximate and measured
-  to the UC San Diego campus generally, not to the Faculty Club — the page states this.
-- Remote participation is mentioned as "link shared with registrants"; add the actual
-  link or platform once known.
+- The hotel suggestions section was removed on October 23, 2026 (it listed six La Jolla
+  hotels; there was no room block). It is in git history if it needs to come back.
+- Remote participation links to the main meeting Zoom (hero Format card and the Venue
+  "Joining remotely?" item); the Ontology Working Group breakout has its own Zoom link.
