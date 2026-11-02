@@ -231,6 +231,30 @@ a{color:var(--blue-dark)}
 }
 .lede{margin:0 0 clamp(26px,4vw,38px); max-width:68ch; font-size:clamp(1rem,1.6vw,1.1rem); color:var(--ink-soft); text-wrap:pretty}
 
+/* ── Participation award winners ──────────────────────────── */
+.winners{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:18px}
+.winner{
+  display:flex; flex-direction:column; align-items:center; text-align:center; gap:14px;
+  background:#fff; border:1px solid var(--line); border-radius:var(--radius);
+  padding:26px 18px 22px; box-shadow:var(--shadow-sm); position:relative; overflow:hidden;
+}
+.winner::before{
+  content:""; position:absolute; inset:0 0 auto 0; height:4px;
+  background:linear-gradient(90deg,var(--teal),var(--blue));
+}
+.winner__photo{
+  width:120px; height:120px; border-radius:50%; object-fit:cover; flex:none;
+  border:4px solid #fff; box-shadow:0 0 0 2px var(--teal), var(--shadow-sm);
+}
+/* Shown until a photo is supplied; same size and ring as the photos. */
+.winner__photo--initials{
+  display:grid; place-items:center;
+  background:linear-gradient(135deg,var(--teal),var(--blue));
+  color:#fff; font-size:2.1rem; font-weight:750; letter-spacing:.02em;
+}
+.winner__name{display:block; font-size:1.12rem; font-weight:750; color:var(--navy-800)}
+.winner__org{display:block; margin-top:3px; font-size:.93rem; color:var(--ink-soft)}
+
 /* ── Meeting portal ──────────────────────────────────────── */
 .portal{
   display:grid; grid-template-columns:minmax(0,1fr) 260px; gap:28px; align-items:start;
@@ -648,6 +672,11 @@ a{color:var(--blue-dark)}
   .facts{grid-template-columns:1fr; gap:14px}
   .place__pin{width:40px; height:40px}
   .portal{grid-template-columns:1fr}
+  .winners{grid-template-columns:1fr}
+  .winner{flex-direction:row; text-align:left; padding:16px 18px}
+  .winner::before{inset:0 auto 0 0; width:4px; height:auto}
+  .winner__photo{width:76px; height:76px}
+  .winner__photo--initials{font-size:1.4rem}
   .portal__qr{display:none}
   .steps{grid-template-columns:1fr}
   .portal__actions .btn{width:100%}
